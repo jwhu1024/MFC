@@ -1,0 +1,15 @@
+//放在OnPaint()裡面
+
+{//設置背景圖片
+CRect    rect;   
+GetClientRect(&rect);   
+CDC    *pDC=GetDC();   
+CDC    memdc;   
+memdc.CreateCompatibleDC(pDC);   
+CBitmap    bitmap;   
+//從資源中載入圖片
+bitmap.LoadBitmap(IDB_BITMAP1);   
+memdc.SelectObject(bitmap);   
+pDC->BitBlt(0,0,rect.Width(),rect.Height(),&memdc,0,0,SRCCOPY);
+}
+

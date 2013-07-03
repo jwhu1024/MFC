@@ -1,0 +1,12 @@
+void CSQLiteTestDlg::MyGetCurrentTime()
+{
+	CTime   m_Time=CTime::GetCurrentTime(); 
+	int hour = m_Time.GetHour(); 
+	int minute  = m_Time.GetMinute();
+	int seconds = m_Time.GetSecond();
+	CString temp;
+	temp.Format("%d:%d:%d", hour, minute, seconds);
+	AfxMessageBox(temp);
+}
+
+3:52:24

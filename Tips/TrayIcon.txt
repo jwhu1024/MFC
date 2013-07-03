@@ -1,0 +1,121 @@
+
+http://blog.csdn.net/akof1314/article/details/5121911
+
+Tray icon
+1. XXXDlg.h:
+
+定義成員NOTIFYICONDATA m_nid;
+
+2.添加tray消息函數
+
+afx_msg LRESULT OnTrayNotify(WPARAM wParam, LPARAM lParam);
+
+3. XXXDlg.cpp:
+
+4.定義tray消息 stdafx.h
+
+#define UM_TRAYNOTIFY WM_USER + 11
+
+5.CXXXDlg建構式添加
+
+ memset(&m_nid, 0, sizeof(m_nid)); // Initialize NOTIFYICONDATA struct
+ m_nid.cbSize = sizeof(m_nid);
+ m_nid.uFlags = NIF_ICON | NIF_TIP | NIF_MESSAGE;
+
+6.CXXXDlg的解構式添加
+
+ m_nid.hIcon = NULL;
+ Shell_NotifyIcon(NIM_DELETE, &m_nid);
+
+7.添加消息映射：
+
+BEGIN_MESSAGE_MAP(CMFC2Dlg, CDialog)
+ //...
+ ON_MESSAGE(UM_TRAYNOTIFY, &CMFC2Dlg::OnTrayNotify)
+ //...
+END_MESSAGE_MAP() 
+
+8.OnInitDialog函數添加：
+
+m_nid.hWnd = GetSafeHwnd();
+ m_nid.uCallbackMessage = UM_TRAYNOTIFY;
+
+ // Set tray icon and tooltip
+ m_nid.hIcon = m_hIcon;
+
+ // Set tray notification tip information
+ CString strToolTip = _T("托?程序");
+ _tcsncpy_s(m_nid.szTip, strToolTip, strToolTip.GetLength());
+ Shell_NotifyIcon(NIM_ADD, &m_nid);
+
+9.OnTrayNotify函數：
+LRESULT CXXXDlg::OnTrayNotify(WPARAM wParam, LPARAM lParam)
+{
+ UINT uMsg = (UINT)lParam;
+
+ switch(uMsg)
+ {
+ case WM_RBUTTONUP:
+  {
+   //右??理
+  CMenu menuTray;
+  CPoint point;
+  int id;
+  GetCursorPos(&point);
+  
+  menuTray.LoadMenu(IDR_MENU_TRAY);
+  id = menuTray.GetSubMenu(0)->TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN|TPM_RIGHTBUTTON, point.x, point.y, this);
+#if 0
+  CString strInfo;
+  strInfo.Format(L"menuid %d", id);
+  LPCTSTR strtmp;
+  strtmp = strInfo.GetBuffer(0);
+  MessageBox(strtmp, L"test");
+#endif
+  switch(id){
+   case IDR_TRAY_EXIT:
+    OnOK();
+    break;
+   case IDR_TRAY_RESTORE:
+
+    //窗口前端?示
+    SetForegroundWindow();
+    ShowWindow(SW_SHOWNORMAL);
+    break;
+   default:
+    break;
+  }
+  break;
+  }
+ case WM_LBUTTONDBLCLK:
+  SetForegroundWindow();
+  ShowWindow(SW_SHOWNORMAL);
+  break;
+ default:
+  break;
+ }
+ return 0;
+}
+
+10.添加WM_SIZE消息處理：
+
+void CMFC2Dlg::OnSize(UINT nType, int cx, int cy)
+{
+ CDialog::OnSize(nType, cx, cy);
+
+ if(nType == SIZE_MINIMIZED){
+  ShowWindow(SW_HIDE);
+ }
+}
+
+MENU
+
+添加菜單 , 比如IDR_MENU_TRAY.
+
+定?一?子菜?Tray，有若干?菜??，比如“恢复窗口”, ID是IDR_TRAY_RESTORE，“退出”, ID是IDR_TRAY_EXIT。
+
+在OnTrayNotify函?中捕?右?消息，?出菜?，?考第6步。
+
+ 
+
+至此，添加托?的功能基本完成。

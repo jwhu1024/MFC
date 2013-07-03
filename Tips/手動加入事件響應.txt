@@ -1,0 +1,14 @@
+
+In header:
+afx_msg void OnBnClickedReset();
+
+In CPP:
+BEGIN_MESSAGE_MAP(CXXXDlg, CDialog)
+	//}}AFX_MSG_MAP
+	ON_BN_CLICKED(IDC_BUTTON2, &CFackCM1Dlg::OnBnClickedReset)
+END_MESSAGE_MAP()
+
+void CXXXDlg::OnBnClickedReset()
+{
+	g_RetryTmp.SetString(NULL);
+}

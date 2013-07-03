@@ -1,0 +1,19 @@
+void *thread_function(void *arg){
+	int numbytes=0, th_num=0, *p_th_num;
+	char buf[1000000];
+	FILE *fp;
+	p_th_num = (int *)arg;
+	th_num = *p_th_num;
+	fp = fopen("TEST.MP3", "rb");
+	//Sending file
+	while(!feof(fp)){
+		numbytes = fread(buf, sizeof(char), sizeof(buf), fp);
+		printf("thread# is %d : fread %d bytes, ", th_num, numbytes);
+		numbytes = write(new_fd[th_num], buf, numbytes);
+		printf("Sending %d bytes\n",numbytes);
+	}
+	printf("Sending file Finished!\n");
+	fclose(fp);
+	close(new_fd[th_num]);
+	return NULL;
+}

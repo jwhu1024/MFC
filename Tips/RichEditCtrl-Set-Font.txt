@@ -1,0 +1,10 @@
+// Setting the font for richedit
+	CHARFORMAT2 cf;
+	ZeroMemory( &cf, sizeof(CHARFORMAT2) );
+	cf.cbSize = sizeof(CHARFORMAT2);
+	cf.dwMask |= CFM_FACE;
+	cf.dwEffects = 0;
+	_tcscpy( cf.szFaceName, _T("Times New Roman") );
+	cf.cbSize = 120;
+	m_richView.SetDefaultCharFormat(cf);  // non-zero means success; what do you get?
+	m_richView.SetWindowText("Times New Roman\r\nTimes New Roman\r\nTimes New Roman\r\nTimes New Roman\r\nTimes New Roman\r\nTimes New Roman\r\nTimes New Roman\r\nTimes New Roman\r\nTimes New Roman\r\nTimes New Roman\r\n");

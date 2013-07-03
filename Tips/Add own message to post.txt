@@ -1,0 +1,15 @@
+HWND hwnd = AfxGetMainWnd()->m_hWnd;
+SendMessage(hwnd, WM_PROGRESS_INDICATE, 0, 0);
+
+in stdafx.h
+#define  WM_PROGRESS_INDICATE       (WM_USER + 0x111)        // Define a customization message to handle USB COM port arrival event
+
+.h
+afx_msg LRESULT OnProgressIndicate(WPARAM wParam, LPARAM lParam);
+
+.cpp
+LRESULT CBackupQcnInFTModeDlg::OnProgressIndicate(WPARAM wParam, LPARAM lParam) 
+{ 
+	g_progress.SetStep(1);
+	return ERROR_SUCCESS; 
+} 

@@ -1,0 +1,26 @@
+#define TIMER_ID1	0x0001
+
+In header:
+afx_msg void OnTimer(UINT_PTR nIDEvent);
+
+In CPP:
+void CXXXDlg::OnTimer(UINT_PTR nIDEvent)
+{	
+	if(nIDEvent == TIMER_ID1)
+	{
+		//Do something;
+	}
+	CDialog::OnTimer(nIDEvent);
+}
+
+void CXXXDlg::StartTimer()
+{
+	SetTimer( TIMER_ID1, 3 * 1000, 0 );
+}
+
+// Stop the timers.
+void CXXXDlg::StopTimer()
+{
+	// Stop both timers.
+	KillTimer(TIMER_ID1);
+}

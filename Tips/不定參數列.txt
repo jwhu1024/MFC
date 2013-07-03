@@ -1,0 +1,18 @@
+int isum = Max(1, 7, 9);
+return 17;
+
+int Max(int a ...);
+int CTestingDlg::Max(int a ...)
+{
+	int count = 0, sum = 0, i = a;
+	va_list maker;
+	va_start(maker, a);
+	while(i > 0)
+	{
+		sum += i;
+		++count;
+		i = va_arg(maker, int); // 將list現在所指指標往後移一個int
+	}
+	va_end(maker); // 將list設回0
+	return sum;
+}

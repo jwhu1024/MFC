@@ -1,0 +1,20 @@
+//~~~~~~~~~~ Setting USB Flag 1A8D2005 1A8D2003 ~~~~~~~~~~~~~~~~~~
+	LONG	nRet;
+	HKEY	m_hkey;
+	LPCTSTR pPIDVID;
+	BYTE	pValue[1];
+
+	nRet = RegOpenKeyEx(HKEY_LOCAL_MACHINE,_T("SYSTEM\\CurrentControlSet\\Control\\UsbFlags"), 0, KEY_ALL_ACCESS, &m_hkey);
+
+	// Test IgnoreHWSerNum with 1A8D2000
+	pPIDVID = _T("IgnoreHWSerNum1A8D1003");
+	pValue[0] = 1;
+	nRet = RegSetValueEx(m_hkey, pPIDVID, 0, REG_BINARY, (LPBYTE)pValue, 1);
+	pPIDVID = _T("IgnoreHWSerNum1A8D1000");
+	pValue[0] = 1;
+	nRet = RegSetValueEx(m_hkey, pPIDVID, 0, REG_BINARY, (LPBYTE)pValue, 1);
+	pPIDVID = _T("IgnoreHWSerNum1A8D100D");
+	pValue[0] = 1;
+	nRet = RegSetValueEx(m_hkey, pPIDVID, 0, REG_BINARY, (LPBYTE)pValue, 1);
+	
+	RegCloseKey(m_hkey);

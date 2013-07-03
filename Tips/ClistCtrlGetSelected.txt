@@ -1,0 +1,16 @@
+int CGetStockInfoDlg::GetSelectedItem()
+{
+
+	POSITION pos = m_StoreItems.GetFirstSelectedItemPosition();
+	int selected=-1;
+	if (pos != NULL)
+	{
+		while (pos)
+		{
+			int nItem = m_StoreItems.GetNextSelectedItem(pos);
+			selected = nItem;
+		}
+	}
+
+	return selected;
+}

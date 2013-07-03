@@ -1,0 +1,29 @@
+Header
+void	DbgPrint(char* chString, CString strData=NULL);
+
+實做內容:
+void CFactoryPCBADlg::DbgPrint(char* chString, CString strData)  // Add this method to output debug string with CString type.
+{
+	CString strTemp;
+	strTemp.SetString(L"");
+
+	Char2CString(chString, &strTemp);
+
+	if(!strData.IsEmpty())
+		strTemp.Append(strData);
+
+	OutputDebugString(strTemp);
+	OutputDebugString(L"\n");
+}
+
+void CFactoryPCBADlg::Char2CString(char* source, CString* dest) 
+{
+	dest->SetString(CA2CT(source)); 
+} 
+
+若需要印出字串也需要變數:
+DbgPrint("[PCBA] Original port number is -> ", CString variable);
+
+
+若只需印出字串不需變數:
+DbgPrint("[PCBA] Check comport change...", NULL);

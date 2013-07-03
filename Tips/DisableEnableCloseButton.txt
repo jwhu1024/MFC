@@ -1,0 +1,8 @@
+UINT menuf = (MF_BYCOMMAND | MF_GRAYED | MF_DISABLED); // disable
+UINT menuf = (MF_BYCOMMAND); // enable
+
+CMenu* pSM = GetSystemMenu(FALSE);
+if(pSM)
+{
+	pSM->EnableMenuItem(SC_CLOSE, menuf);
+}

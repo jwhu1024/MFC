@@ -1,0 +1,30 @@
+	SHELLEXECUTEINFO  csSEI;
+	EditBatchFile_LoadBinFile(strBinFile);
+	memset(&csSEI, 0, sizeof(csSEI));
+	csSEI.cbSize = sizeof(SHELLEXECUTEINFO);
+	csSEI.fMask = SEE_MASK_NOCLOSEPROCESS;
+	csSEI.lpVerb = _T("open");
+	csSEI.lpFile = L"LoadBinFile.bat";
+	csSEI.nShow = SW_HIDE; 
+	csSEI.nShow = SW_SHOW;
+	ShellExecuteEx(&csSEI);
+	
+	//----- waiting download process finish -----//
+	DWORD dwWait;
+	dwWait = WaitForSingleObject(csSEI.hProcess, 90000);
+
+	//--------------- download CustomerConfig process end ---------------//
+	TaskDelay(500);
+	if(dwWait == WAIT_OBJECT_0)
+	{
+		MyIMEIResultFile.Close();
+		DeleteFile(strIMEIFilePath);
+		if(!strBinFile.CompareNoCase(L"CC.bin"))
+			DeleteFile( m_strRootPath + strBinFile);  //test
+		LogMessage(_T("Load Bin File Process\t\tSuccess") );
+	}
+	else
+	{
+		LogMessage(_T("Load Bin File Process\t\t\tFail"), COL_ERROR);
+		return FALSE;
+	}

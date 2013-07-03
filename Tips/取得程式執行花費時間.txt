@@ -1,0 +1,28 @@
+[1]
+DWORD  dwStart = ::GetTickCount();
+
+	do  
+	{
+		DoEvents();
+		bFileflag = MyIMEIResultFile.Open(strIMEIFilePath, CFile::modeRead, &e);
+	} while ((bFileflag != TRUE) || ((::GetTickCount() - dwStart) > 10000) ); // Maximal response time up to 10 sec.
+
+[2]
+CTime timeStart, timeEnd;
+
+timeStart = CTime::GetCurrentTime();   
+
+timeEnd = CTime::GetCurrentTime();   
+
+CTimeSpan timeRun = timeEnd - timeStart;
+   
+printf( "°õ¦æ®É¶¡ : %d:%d:%d ", timeRun.GetHours(),timeRun.GetMinutes(),timeRun.GetSeconds());
+
+[3]
+/* Get system Time */
+	CString sysYear, sysMonth, sysDay;   
+	SYSTEMTIME   CurTime;   
+	GetLocalTime(&CurTime);   
+	sysYear.Format("%d",CurTime.wYear);   
+	sysMonth.Format("%d",CurTime.wMonth);   
+	sysDay.Format("%d",CurTime.wDay);  

@@ -1,0 +1,22 @@
+
+#define _RPTF1(rptno, msg, arg1) (crtdbg.h)
+_RPTF1(_CRT_WARN,"CContactsDlg::onImportOutlook() - %s\n",(char *)e.Description());
+
+
+CString str2 = _T("Hello");
+OutputDebugString(str2);	
+
+
+TRACE(_T("Query Device Mode OK\r\n"));
+
+
+TRACE( "L = %x and W = %x and M = %d \n", a, n,p);
+
+err.Format(_T("Get SMS Center Number Error -%d"),nRet);
+
+OutputDebugString(_T("UpdateInfoThread - IDS_OPEN_DEVICE - 2"));//lester
+
+((CButton*)GetDlgItem(IDC_CHECK_IPV6))-> SetCheck(theInfo.bIPV6);  //±±¨îcheckBox¥´¤Ä
+
+
+_CrtSetBreakAlloc

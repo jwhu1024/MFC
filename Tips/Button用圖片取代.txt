@@ -1,0 +1,7 @@
+In Onpaint
+
+CBitmap   Bitmap; 
+Bitmap.LoadBitmap(IDB_BITMAP2); 
+HBITMAP   hBitmap=(HBITMAP)Bitmap.Detach(); 
+CButton   *pButton=(CButton*)GetDlgItem(IDC_BUTTON2); 
+pButton-> SetBitmap(hBitmap);

@@ -1,0 +1,1 @@
+AttachThreadInput(::GetWindowThreadProcessId(::GetForegroundWindow(),NULL), ::GetCurrentThreadId(), TRUE);

@@ -1,0 +1,92 @@
+void CFactoryPCBADlg::CString2Char(CString source, char* dest) 
+{
+	WCHAR *wch = new WCHAR[source.GetLength()]; 
+	memcpy(wch,source,sizeof(WCHAR)*source.GetLength()); 
+	wcstombs(dest,wch,source.GetLength()*sizeof(char)); 
+	dest[source.GetLength()] = '\0'; 
+	delete[] wch; 
+} 
+
+void CFactoryPCBADlg::Char2CString(char* source, CString* dest) 
+{
+	dest->SetString(CA2CT(source)); 
+} 
+
+[CString to int]
+CString szTemp= "123456"; 
+int nTemp=atoi((LPTSTR)(LPCTSTR)szTemp);
+
+[Unicode to Ansi]
+void UnicodeToAnsi(TCHAR *unicode,char* ansi){
+int n;
+n=WideCharToMultiByte(CP_ACP,0,unicode,-1,ansi,0,NULL,FALSE);
+WideCharToMultiByte(CP_ACP,0,unicode,-1,ansi,n,NULL,FALSE);
+}
+
+[Ansi to Unicode]
+void AnsiToUnicode(char* ansi,TCHAR* unicode){
+int n;
+n=MultiByteToWideChar(CP_ACP,0,ansi,-1,0,0);
+MultiByteToWideChar(CP_ACP,0,ansi,-1,unicode,n);
+}
+
+[CString to LPCWSTR]
+LPCWSTR pcwStr = L"TestpwcStr"; 
+CString str(pcwStr); 
+
+[BYTE* to CString]
+Solution:
+	BYTE* sendData = NULL;
+	CString sStr((char*)sendData);
+	sStr = sStr.Left(pThis->convert); // Get the char that you want
+	AfxMessageBox(sStr);
+	
+[CString to BYTE(char)Array]
+Solution:
+CString str_sendData;
+BYTE sendData[1024];
+pThis->m_Path.GetWindowText(str_sendData);
+strcpy((char*)sendData, str_sendData);
+
+[CString to char array]
+char sQcnFile[256];
+CString strQcn = _T("c:\\C100_write.qcn");
+WideCharToMultiByte(CP_OEMCP, NULL, strQcn, -1, sQcnFile, 255, NULL, FALSE); 
+
+[CString to DWORD]
+Solution:
+	DWORD dwIP;
+	CEdit m_IPaddress; 
+	CString str_address;
+	m_IPaddress.GetWindowText(str_address);
+	dwIP = atol((const char*)str_address);
+	
+atof: ¦r¦êÂàfloat
+atol: ¦r¦êÂàlong
+ltoa: longÂà¦r¦ê
+_wtoi() = atoi unicode ver
+
+char* itoa(int value, char* result, int base) 
+{
+	// check that the base if valid
+	if (base < 2 || base > 36) { *result = '\0'; return result; }
+
+	char* ptr = result, *ptr1 = result, tmp_char;
+	int tmp_value;
+
+	do {
+		tmp_value = value;
+		value /= base;
+		*ptr++ = "zyxwvutsrqponmlkjihgfedcba9876543210123456789abcdefghijklmnopqrstuvwxyz" [35 + (tmp_value - value * base)];
+	} while ( value );
+
+	// Apply negative sign
+	if (tmp_value < 0) *ptr++ = '-';
+	*ptr-- = '\0';
+	while(ptr1 < ptr) {
+		tmp_char = *ptr;
+		*ptr--= *ptr1;
+		*ptr1++ = tmp_char;
+	}
+	return result;
+}

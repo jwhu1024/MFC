@@ -1,0 +1,17 @@
+CString strSaveFilePath;
+	CString szFilter = L"Mp3 Files (*.mp3)|*.mp3||";
+
+	CFileDialog fileSaveDialog( TRUE, // TRUE for FileOpen, FALSE for FileSaveAs
+					L"Mp3",
+					L"",
+					OFN_HIDEREADONLY|OFN_OVERWRITEPROMPT,
+					szFilter,
+					this);
+
+	
+	/* Default Path */
+	fileSaveDialog.m_ofn.lpstrInitialDir = L"D:\\Music";
+
+	/* Show dialog and get the path */
+	if ( fileSaveDialog.DoModal() == IDOK )
+		strSaveFilePath = fileSaveDialog.GetPathName();

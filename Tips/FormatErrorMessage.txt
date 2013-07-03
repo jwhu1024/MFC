@@ -1,0 +1,18 @@
+void FormatErrorMessage(DWORD dwError)  
+{  
+	CString strMsg;
+	LPVOID pszErrMSG;  
+	// Use the default system locale since we look for Windows messages.  
+	// Note: this MAKELANGID combination has 0 as value  
+	DWORD systemLocale = MAKELANGID(LANG_NEUTRAL, SUBLANG_NEUTRAL);  
+	// Get the error code's textual description  
+	BOOL fOk = FormatMessage(  
+		FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS |  
+		FORMAT_MESSAGE_ALLOCATE_BUFFER,   
+		NULL, dwError, systemLocale,   
+		(LPTSTR) &pszErrMSG, 0, NULL);
+
+	strMsg.Format(_T("¿ù»~°T®§¡G%s\n , ¿ù»~¥N½X¡G0x%x"), pszErrMSG, GetLastError());
+	AfxMessageBox(strMsg);
+	LocalFree(pszErrMSG);
+}

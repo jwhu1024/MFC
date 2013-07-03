@@ -1,0 +1,44 @@
+#include <Delayimp.h>
+
+// Step 1: 嘗試載入 Add function from MyDll.dll 
+__try 
+{
+	/* Dll裡面的method */
+	DoProcess(filePath,		/* Firmware Path	 */
+			  NULL,			/* Port Number		 */
+			  GetProg,		/* Progress Callback */
+			  job);
+}
+// Step 2: 攔截發生的 Exception
+__except (DelayLoadDllExceptionFilter(GetExceptionInformation( ))) 
+{
+	// Nothing to do in here, thread continues to run normally
+}
+
+LONG WINAPI DelayLoadDllExceptionFilter(PEXCEPTION_POINTERS pep) 
+{
+	CString tmp;
+	PDelayLoadInfo pdli;
+	char sz[500] = { 0 };   // Error Message 使用
+	TCHAR sz1[500] = { 0 }; // Error Message 使用
+
+	pdli =  PDelayLoadInfo( pep->ExceptionRecord->ExceptionInformation[0]);
+
+	switch (pep->ExceptionRecord->ExceptionCode) {
+		case VcppException(ERROR_SEVERITY_ERROR, ERROR_MOD_NOT_FOUND):
+			wsprintfA(sz, "DLL module Not found: %s", pdli->szDll);
+			AnsiToUnicode(sz, sz1);
+			tmp.Format(L"%s", sz1);
+			AfxMessageBox(tmp);
+			break;   
+
+		case VcppException(ERROR_SEVERITY_ERROR, ERROR_PROC_NOT_FOUND):
+			wsprintfA(sz, "DLL module %s, Can not found the function %s", 
+				pdli->szDll, pdli->dlp.szProcName);
+			AnsiToUnicode(sz, sz1);
+			tmp.Format(L"%s", sz1);
+			AfxMessageBox(tmp);
+			break;
+	}
+	return 1;
+}

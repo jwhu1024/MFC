@@ -1,0 +1,38 @@
+HBRUSH CDebugWindowsDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
+{
+	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
+
+	// TODO:  在此變更 DC 的任何屬性
+	CFont   f1; //Add 1215
+	CFont   f2; //Add 1215
+
+	//pDC->SelectObject(&f1);
+
+	//?置控件背景?色字体?色、以及字体大小
+	if (pWnd->GetDlgCtrlID() == IDC_LIST1)
+	{          
+		LOGFONT logFont;
+		logFont.lfHeight=15; //字体高度
+		logFont.lfWidth=0;   //字体?距
+		logFont.lfWeight=FW_HEAVY; 
+		//logFont.lfItalic=0;    //是否斜体字体
+		//logFont.lfStrikeOut=0; //是否加?除?
+		logFont.lfCharSet=SYMBOL_CHARSET; //?置字体?型
+
+		f1.CreateFontIndirect(&logFont);
+		pWnd->SetFont(&f1, FALSE); //只?一次        
+	}
+
+	if(nCtlColor == CTLCOLOR_LISTBOX) 
+	{ 
+		pDC->SetBkColor(RGB(0,0,0));
+		pDC->SetTextColor(RGB(0,255,0));
+
+		HBRUSH m_hbrush; 
+		m_hbrush = CreateSolidBrush(RGB(0,0,0)); 
+		return m_hbrush; 
+	}
+
+	// TODO:  如果預設值並非想要的，則傳回不同的筆刷
+	return hbr;
+}

@@ -1,0 +1,70 @@
+<<製作一個可以在Console模式與圖形模式下運作的windows應用程式>>
+
+由於工作所需，我要寫一個可以在command line mode與GUI mode下運作的應用程式，
+
+當運作於command line時，就如同一般的DOS程式，不會有如GUI一樣跳一個視窗背景出來，
+
+當運作於GUI mode時，只要滑鼠點擊，就可以直接呼叫出應用程式介面。
+
+本來是想說透過GOOGLE大神應該可以找到相同的應用程式可以參考，
+
+沒想到居然沒有，有些是在原來的GUI application中加上幾段CODE來抑制其跳出圖形介面，
+
+但是這有幾個缺點，
+
+
+(一)當執行於command line mode時，由於MFC會預先載入，因此在console執行時會另外跳一個Command Line的視窗
+
+
+(二)使用MFC的支援下，大多是用Builder直接產生對應Event的Code，
+
+因此很難再現有的GUI Application中加入Console mode的Support，
+
+因為底層運作的Class可能已經被綁在UI那一層了，
+
+如果一開始在Lay out整個Project design沒做好這件事的話
+
+所以程式設計中的UML概念很重要，
+
+尤其當我們的專案越來越大，OO Design對我們整個Project
+
+的影響至大無比，尤其當你遇到一個動不動就改Design的老闆。
+
+
+Anyway，看來只能靠自己去摸索了，
+
+嚐試了一點東西後，其實好像也沒想像中困難
+
+首先NEW一個新的Project，並指定為Console project
+ 
+在下一步中勾選MFC Support，方便我們以後要寫GUI的程式，
+
+畢竟有了Visual Studio後，需要用純PSDK寫CODE的也不多了吧。如果有，只能說你們辛苦了
+
+接著加上Highlight起來的那幾行，就OKAY了
+
+如此一來，你可以控制你的Application在不同的模式中的運作，
+
+theApp.m_pMainWnd = &YourDlg ;
+
+這一行很重要，沒有加上的很多MFC Event會沒辦法被正確呼叫，甚至Application會整個Crash。
+
+::ShowWindow(::GetConsoleWindow(), SW_HIDE) ;
+
+這一行可以把自身的Console window隱藏起來，由於我們不是純DOS的程式，
+
+當在Console模式中執行時，當程式一開始執行時，
+
+CMD.exe會跑起來Run我們的程式，
+
+因此你會發現如果這行拿掉的話，
+
+在我們的Dialog之外還有個Console window在Run。
+
+總個的來看，
+
+不過就是開一個Console base的Project，
+
+然後依照command arguments的個數來判斷是那一個模式，
+
+你也可以給幾個參數來判斷，依照你Project的需要。
