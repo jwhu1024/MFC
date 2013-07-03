@@ -1,3 +1,0 @@
-@ECHO OFF
-echo pinging ftp.microsoft.com ...
-ping ftp.microsoft.com
