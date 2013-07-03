@@ -1,0 +1,7 @@
+Follow these steps to add a CColorListBox to a dialog:
+
+1. Add ColorListBox.cpp and ColorListBox.h to your project.
+2. Add include "ColorListBox.h" to the header file of your dialog class.
+3. Add a list box control to your dialog, with the Owner Draw style set to Fixed or Variable, and with the Has Strings style checked.
+4. Use ClassWizard to add a member variable of type CColorListBox for the list box you just added. If CColorListBox is not in the Variable Type list, 
+choose CListBox, and manually change the type to CColorListBox later.

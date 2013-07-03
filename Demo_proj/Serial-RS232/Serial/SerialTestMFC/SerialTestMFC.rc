@@ -1,0 +1,385 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\SerialTestMFC.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\SerialTestMFC.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Open",                       ID_COM_OPEN
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About SerialTestMFC...",     ID_APP_ABOUT
+    END
+END
+
+IDR_SERIALTYPE MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Open",                       ID_COM_OPEN
+        MENUITEM "&Close",                      ID_COM_CLOSE
+        MENUITEM SEPARATOR
+        MENUITEM "&Settings...",                ID_COM_SETTINGS
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Window"
+    BEGIN
+        MENUITEM "&Cascade",                    ID_WINDOW_CASCADE
+        MENUITEM "&Tile",                       ID_WINDOW_TILE_HORZ
+        MENUITEM "&Arrange Icons",              ID_WINDOW_ARRANGE
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About SerialTestMFC...",     ID_APP_ABOUT
+    END
+    POPUP "&Commands"
+    BEGIN
+        MENUITEM "&Send File",                  ID_COMMANDS_SENDFILE
+        MENUITEM "Send &Break",                 ID_COMMANDS_SENDBREAK
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 212, 119
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About SerialTestMFC"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDI_ABOUT_ICON,17,18,21,20
+    LTEXT           "SerialTestMFC application",IDC_ABOUT_TITLE,57,18,134,21,
+                    SS_NOPREFIX
+    LTEXT           "Copyright 1999-2003 Ramon de Klein (Ramon.de.Klein@ict.nl)\nSample application of the CodeNugget library",
+                    IDC_ABOUT_COPYRIGHT,57,42,133,42,SS_NOPREFIX
+    DEFPUSHBUTTON   "OK",IDOK,80,98,50,14,WS_GROUP
+    GROUPBOX        "",IDC_STATIC,7,3,198,87
+END
+
+IDD_COM_SETTINGS DIALOG DISCARDABLE  0, 0, 190, 194
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Settings"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "&Baudrate",IDC_BAUDRATE,7,7,176,50,WS_GROUP
+    CONTROL         "1200",IDC_BAUDRATE_1200,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP | WS_TABSTOP,15,20,40,10
+    CONTROL         "2400",IDC_BAUDRATE_2400,"Button",BS_AUTORADIOBUTTON,15,
+                    30,40,10
+    CONTROL         "9600",IDC_BAUDRATE_9600,"Button",BS_AUTORADIOBUTTON,15,
+                    40,32,10
+    CONTROL         "14400",IDC_BAUDRATE_14400,"Button",BS_AUTORADIOBUTTON,
+                    75,20,40,10
+    CONTROL         "19200",IDC_BAUDRATE_19200,"Button",BS_AUTORADIOBUTTON,
+                    75,30,40,10
+    CONTROL         "38400",IDC_BAUDRATE_38400,"Button",BS_AUTORADIOBUTTON,
+                    75,40,40,10
+    CONTROL         "56000",IDC_BAUDRATE_56000,"Button",BS_AUTORADIOBUTTON,
+                    135,20,40,10
+    CONTROL         "57600",IDC_BAUDRATE_57600,"Button",BS_AUTORADIOBUTTON,
+                    135,30,40,10
+    CONTROL         "115200",IDC_BAUDRATE_115200,"Button",BS_AUTORADIOBUTTON,
+                    135,40,40,10
+    GROUPBOX        "&Databits",IDC_DATA,7,62,55,70,WS_GROUP
+    CONTROL         "5 bits",IDC_DATA_5,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP | WS_TABSTOP,15,75,40,10
+    CONTROL         "6 bits",IDC_DATA_6,"Button",BS_AUTORADIOBUTTON,15,85,40,
+                    10
+    CONTROL         "7 bits",IDC_DATA_7,"Button",BS_AUTORADIOBUTTON,15,95,40,
+                    10
+    CONTROL         "8 bits",IDC_DATA_8,"Button",BS_AUTORADIOBUTTON,15,105,
+                    33,10
+    GROUPBOX        "&Parity",IDC_PARITY,67,62,55,70,WS_GROUP
+    CONTROL         "None",IDC_PARITY_NONE,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP | WS_TABSTOP,75,75,33,10
+    CONTROL         "Odd",IDC_PARITY_ODD,"Button",BS_AUTORADIOBUTTON,75,85,
+                    40,10
+    CONTROL         "Even",IDC_PARITY_EVEN,"Button",BS_AUTORADIOBUTTON,75,95,
+                    40,10
+    CONTROL         "Mark",IDC_PARITY_MARK,"Button",BS_AUTORADIOBUTTON,75,
+                    105,40,10
+    CONTROL         "Space",IDC_PARITY_SPACE,"Button",BS_AUTORADIOBUTTON,75,
+                    115,40,10
+    GROUPBOX        "&Stopbits",IDC_STOP,128,62,55,70,WS_GROUP
+    CONTROL         "1 bit",IDC_STOP_1,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP | WS_TABSTOP,135,75,29,10
+    CONTROL         "1.5 bit",IDC_STOP_15,"Button",BS_AUTORADIOBUTTON,135,85,
+                    40,10
+    CONTROL         "2 bits",IDC_STOP_2,"Button",BS_AUTORADIOBUTTON,135,95,
+                    40,10
+    GROUPBOX        "&Handshaking",IDC_HANDSHAKING,7,138,176,50,WS_GROUP
+    CONTROL         "Off",IDC_HANDSHAKING_OFF,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP | WS_TABSTOP,15,150,100,10
+    CONTROL         "Software (XON/XOFF)",IDC_HANDSHAKING_SOFTWARE,"Button",
+                    BS_AUTORADIOBUTTON,15,160,100,10
+    CONTROL         "Hardware (RTS/CTS)",IDC_HANDSHAKING_HARDWARE,"Button",
+                    BS_AUTORADIOBUTTON,15,170,100,10
+END
+
+IDD_COM_EVENTS DIALOG DISCARDABLE  0, 0, 190, 205
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Events"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Event &types",IDC_EVENTS,7,7,176,110,WS_GROUP
+    CONTROL         "A break was detected on input",IDC_EVENT_BREAK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,20,150,10
+    CONTROL         "The CTS signal changed state",IDC_EVENT_CTS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,30,150,10
+    CONTROL         "The DSR signal changed state",IDC_EVENT_DSR,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,40,150,10
+    CONTROL         "A line-status error occurred",IDC_EVENT_ERROR,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,50,150,10
+    CONTROL         "A ring indicator was detected",IDC_EVENT_RING,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,60,150,10
+    CONTROL         "The RLSD signal changed state",IDC_EVENT_RLSD,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,70,150,10
+    CONTROL         "Data is received on input",IDC_EVENT_RECV,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,80,150,10
+    CONTROL         "Event character was received on input",IDC_EVENT_RCV_EV,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,90,150,10
+    CONTROL         "Last character on output was sent",IDC_EVENT_SEND,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,100,150,10
+    GROUPBOX        "Event &character",IDC_EVENT_CHAR,7,122,176,33,WS_GROUP
+    LTEXT           "Decimal representation (0-255)",IDC_EVENT_CHAR_TEXT,15,
+                    135,97,8,NOT WS_GROUP
+    EDITTEXT        IDC_EVENT_CHAR_VALUE,125,133,50,14,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+END
+
+IDD_COM_SELECT DIALOG DISCARDABLE  0, 0, 114, 95
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "COM port selection"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "COM port selection",IDC_STATIC,7,7,100,60
+    CONTROL         "COM &1",IDC_COM1,"Button",BS_AUTORADIOBUTTON | WS_GROUP | 
+                    WS_TABSTOP,15,20,40,10
+    CONTROL         "COM &2",IDC_COM2,"Button",BS_AUTORADIOBUTTON,15,30,40,
+                    10
+    CONTROL         "COM &3",IDC_COM3,"Button",BS_AUTORADIOBUTTON,15,40,40,
+                    10
+    CONTROL         "COM &4",IDC_COM4,"Button",BS_AUTORADIOBUTTON,15,50,40,
+                    10
+    DEFPUSHBUTTON   "OK",IDOK,33,74,50,14,WS_GROUP
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,0
+ PRODUCTVERSION 1,0,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "Ramon de Klein (email: Ramon.de.Klein@ict.nl)\0"
+            VALUE "FileDescription", "SerialTestMFC Sample Application\0"
+            VALUE "FileVersion", "1, 0, 0, 0\0"
+            VALUE "InternalName", "SerialTestMFC\0"
+            VALUE "LegalCopyright", "Copyright (C) 1999-2003 Ramon de Klein\0"
+            VALUE "LegalTrademarks", "All rights reserved\0"
+            VALUE "OriginalFilename", "SerialTestMFC.EXE\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "SerialTestMFC Sample Application (sample of CodeNuggets library)\0"
+            VALUE "ProductVersion", "1, 0, 0, 0\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 205
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 112
+    END
+
+    IDD_COM_SETTINGS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 183
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 187
+    END
+
+    IDD_COM_EVENTS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 183
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 198
+    END
+
+    IDD_COM_SELECT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 107
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    IDR_MAINFRAME           "SerialTestMFC"
+    IDR_SERIALTYPE          "\nSerial\nSerial"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "SerialTestMFC"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_COMMANDS_SENDFILE    "Send a file (binary mode)"
+    ID_COMMANDS_SENDBREAK   "Send a break"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\SerialTestMFC.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

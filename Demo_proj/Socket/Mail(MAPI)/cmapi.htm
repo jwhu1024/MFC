@@ -1,0 +1,389 @@
+<html>
+
+<head>
+<title>CMapi v1.01</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="left"><font face="Arial"><strong><big><big><big><big><img border="0" src="cmapi.gif" width="39" height="40">
+ CMapi v1.01</big></big></big></big></strong></font></p>
+
+<p><font face="Arial">Welcome to <strong>CMapi</strong>, 2 simple classes to
+encapsulate sending mail using Simple MAPI.</font></p>
+
+<p><font face="Arial">Simple MAPI is a set of functions exported by MAPI32.dll
+which allows you to send and receive mail in a transport independent way. It is
+an optional part of all Win32 operating systems since Windows 95 (excluding
+WinCE). MAPI is intended more for the corporate environment when compared with
+the Internet mail standard SMTP e.g.products such as MS Exchange Server use MAPI
+extensively. Transport providers are available for a number of messaging
+transports including Exchange Server, SMTP, Fax, cc:Mail Compuserve etc. To be
+able to specify different transports, Mapi provides the concept of profiles
+which are setup using the Mail control panel applet.</font></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<table>
+  <tr>
+    <td><font face="Arial"><a href="#Features">Features</a></font></td>
+  </tr>
+  <tr>
+    <td><font face="Arial"><a href="#Usage">Usage</a></font></td>
+  </tr>
+  <tr>
+    <td><font face="Arial"><a href="#History">History</a></font></td>
+  </tr>
+  <tr>
+    <td><font face="Arial"><a href="#APIReference">API Reference</a></font></td>
+  </tr>
+  <tr>
+    <td><font face="Arial"><a href="#Enhancements">Planned Enhancements</a></font></td>
+  </tr>
+  <tr>
+    <td><font face="Arial"><a href="#Contact">Contacting the Author</a></font></td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial"><a name="Features"></a><big><strong><big>Features</big></strong></big>
+</font>
+
+<ul>
+  <li><font color="#000000" size="3" face="Arial">Simple and clean C++ interface.</font></li>
+  <li><font color="#000000" size="3" face="Arial">All the code is UNICODE
+    compliant and build configurations are provided for this. Even though Simple
+    MAPI only exports an Ascii versions of it's functions, the class internally
+    performs the necessary conversions.</font></li>
+  <li><font color="#000000" size="3" face="Arial">The code can be used in a console
+    application or without bringing up any Mapi dialogs if so desired.</font></li>
+  <li><font color="#000000" size="3" face="Arial">The code gracefully handles
+    the case where MAPI is not installed on client machines. Internally the
+    class loads the DLL and uses GetProcAddress calls.</font></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><a name="Usage"></a><font face="Arial"><big><big><strong>Usage</strong></big></big></font>
+
+<ul>
+  <li><font color="#000000" size="3" face="Arial">To use the class in your code simply include
+    cmapi.cpp in your project and #include cmapi.h in which ever of your modules needs to
+    make calls to the classes.</font></li>
+  <li><font face="Arial">Your code will need to include MFC either statically or dynamically.</font></li>
+  <li><font face="Arial">You may want to add mapi.h to your pre compiled header
+    to improve compilation speed. An build message will inform you of this.</font></li>
+  <li><font face="Arial">To see the class in action, have a look at the code in InitInstance
+    in the module &quot;app.cpp&quot;.</font></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><big><a name="History"></a></big><font color="#000000" size="5" face="Arial"><strong>History</strong></font></p>
+
+<p><strong><font color="#000000" size="3" face="Arial">V1.0 (14th May 199</font><font color="#000000" size="3" face="Arial">9)</font></strong> 
+
+<ul>
+  <li><font color="#000000" size="3" face="Arial">Initial public release.</font></li>
+</ul>
+
+<p><strong><font color="#000000" size="3" face="Arial">V1.01 (5 December 1999)</font></strong> 
+
+<ul>
+  <li><font face="Arial">Fixed potential problem where CMapi is used in a console app which was giving an ASSERT</font></li>
+  <li><font face="Arial">Fixed an assert which can occur if you dismiss the login dialog when doing an                          interactive MAPI logon</font></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p class="crt"><font face="Arial"><a name="APIReference"></a><big><big><strong>API
+Reference</strong></big></big></font></p>
+
+<p><font face="Arial">The API consists of the following 2 classes and their methods and
+variables</font></p>
+
+<p>&nbsp;</p>
+
+<p><strong><font face="Arial">CMapiMessage</font></strong></p>
+
+<p align="left"><strong><font face="Arial"><a href="#m_To">CMapiMessage</a></font></strong><strong><font face="Arial"><a href="#m_To">::m_To</a><br>
+<a href="#m_CC">CMapiMessage::m_CC</a><br>
+<a href="#m_BCC">CMapiMessage::m_BCC</a><br>
+<a href="#m_sSubject">CMapiMessage::m_sSubject</a><br>
+<a href="#m_sBody">CMapiMessage::m_sBody</a><br>
+<a href="#m_Attachments">CMapiMessage::m_Attachments</a><br>
+<a href="#m_AttachmentTitles">CMapiMessage::m_AttachmentTitles</a></font></strong></p>
+
+<p>&nbsp;</p>
+
+<p><strong><font face="Arial">CMapiSession</font></strong></p>
+
+<p><strong><font face="Arial"><a href="#CMapiSession">CMapiSession</a></font></strong><strong><font face="Arial"><a href="#CMapiSession">::CMapiSession</a><br>
+<a href="#~CMapiSession">CMapiSession::~CMapiSession</a><br>
+<a href="#Logon">CMapiSession::Logon</a><br>
+<a href="#LoggedOn">CMapiSession::LoggedOn</a><br>
+<a href="#Logoff">CMapiSession::Logoff</a><br>
+<a href="#Send">CMapiSession::Send</a><br>
+<a href="#MapiInstalled">CMapiSession::MapiInstalled</a><br>
+<a href="#GetLastError">CMapiSession::GetLastError</a></font></strong></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial"><a name="m_To"></a><big><strong>CMapiMessage</strong></big><strong><big>::m_To</big></strong></font></p>
+
+<p><font face="Arial"><strong>Remarks</strong></font></p>
+
+<p><font face="Arial">m_To is of type CStringArray and contains the array of
+recipients which the email is to be mailed to. The name of each recipient can be a
+friendly name (the friendly name is the name which a recipient with an address book
+entry is known as e.g. <i>&quot;PJ at Work&quot;</i> could map to using an SMTP MAPI transport to send to <i>pj.naughter@softech-telecom.com</i>)
+or it can be a specific transport address e.g. SMTP:pjn@indigo.ie, FAX:34567
+etc.</font></p>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial"><a name="m_CC"></a><big><strong>CMapiMessage</strong></big><strong><big>::m_CC</big></strong></font></p>
+
+<p><font face="Arial"><strong>Remarks</strong></font></p>
+
+<p><font face="Arial">m_CC is of type CStringArray and contains the array of
+recipients which the email will be Carbon Copied&nbsp; to.&nbsp; The way
+addresses are specified is the same as for m_To.</font></p>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial"><a name="m_BCC"></a><big><strong>CMapiMessage</strong></big><strong><big>::m_BCC</big></strong></font></p>
+
+<p><font face="Arial"><strong>Remarks</strong></font></p>
+
+<p><font face="Arial">m_BCC is of type CStringArray and contains the array of
+recipients which the email will be Blind Carbon Copied&nbsp; to.&nbsp; The way
+addresses are specified is the same as for m_To.</font></p>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial"><a name="m_sSubject"></a><big><strong>CMapiMessage</strong></big><strong><big>::m_sSubject</big></strong></font></p>
+
+<p><font face="Arial"><strong>Remarks</strong></font></p>
+
+<p><font face="Arial">m_sSubject is of type CString and is the subject line of
+the email.</font></p>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial"><a name="m_sBody"></a><big><strong>CMapiMessage</strong></big><strong><big>::m_sBody</big></strong></font></p>
+
+<p><font face="Arial"><strong>Remarks</strong></font></p>
+
+<p><font face="Arial">m_sBody is of type CString and is the body of the email.</font></p>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial"><a name="m_Attachments"></a><big><strong>CMapiMessage</strong></big><strong><big>::m_Attachments</big></strong></font></p>
+
+<p><font face="Arial"><strong>Remarks</strong></font></p>
+
+<p><font face="Arial">m_Attachments is of type CStringArray and is a list of
+filenames to be included as attachments in the email.</font></p>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial"><a name="m_AttachmentTitles"></a><big><strong>CMapiMessage</strong></big><strong><big>::m_AttachmentTitles</big></strong></font></p>
+
+<p><font face="Arial"><strong>Remarks</strong></font></p>
+
+<p><font face="Arial">m_AttachmentTitles is of type CStringArray and contains
+the titles of what each file attachment will be known as to recipients of this
+message. If you leave this array empty then the title will be the same as the
+filename. As an example have a look at the code in InitInstance in app.cpp to
+see how the <i>&quot;autoexec.bat&quot;</i> attachment has a title of <i>&quot;my autoexec.bat&quot;.</i></font></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><a name="CMapiSession"></a><big><font face="Arial"><strong>CMapiSession</strong></font></big><font face="Arial"><strong><big>::</big><big>CMapiSession</big></strong></font></p>
+
+<p><font face="Arial"><strong>CMapiSession</strong></font><font face="Arial"><strong>();</strong></font></p>
+
+<p><font face="Arial"><strong>Remarks</strong></font></p>
+
+<p><font face="Arial">Standard constructor for the class. This class is the main
+MAPI
+support class and contains the functions to actually send the mail message.</font></p>
+
+<p>&nbsp;</p>
+
+<p><a name="~CMapiSession"></a><big><font face="Arial"><strong>CMapiSession</strong></font></big><font face="Arial"><strong><big>::~CMapiSession</big></strong></font></p>
+
+<p><font face="Arial"><strong>CMapiSession</strong></font><font face="Arial"><strong>();</strong></font></p>
+
+<p><font face="Arial"><strong>Remarks</strong></font></p>
+
+<p><font face="Arial">Standard desstructor for the class. Internally this logs
+you out of MAPI if you're logged in and unloads the MAPI dll.</font></p>
+
+<p>&nbsp;</p>
+
+<p><a name="Logon"></a><big><font face="Arial"><strong>CMapiSession</strong></font></big><font face="Arial"><strong><big>::Logon</big></strong></font></p>
+
+<p><font face="Arial"><strong>BOOL Logon(const CString&amp; </strong>sProfileName<strong>,
+const CString&amp; </strong>sPassword<strong> = CString(), CWnd* </strong>pParentWnd<strong>
+= NULL);</strong></font></p>
+
+<p class="rl"><strong><font face="Arial">Return Value</font></strong></p>
+
+<p class="t"><font face="Arial">TRUE if you were successfully logged in to MAPI
+otherwise FALSE</font></p>
+
+<p><font face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font face="Arial"><em>sProfileName</em> MAPI profile name to use to logon.</font></p>
+
+<p><font face="Arial"><em>sPassword</em> sPassword associated with the profile
+(if any).</font></p>
+
+<p><font face="Arial"><em>pParentWnd</em> The parent window indicating that if a
+dialog box is displayed, it is modal with respect to.</font></p>
+
+<p><font face="Arial"><strong>Remarks</strong></font></p>
+
+<p><font face="Arial">Logons to the MAPI messaging system creating a session
+with it. If you pass an empty profile name then Logon will try to
+interactively logon by presenting the normal MAPI logon dialog.
+Specifying NULL as the parent window as is the default will use the window as
+returned by AfxGetMainWnd(). Please note that you must be logged on to MAPI
+prior to sending a message. Internally the code will <i>&quot;ASSERT&quot;</i>
+to ensure you do not forget to do this.</font></p>
+
+<p>&nbsp;</p>
+
+<p><a name="LoggedOn"></a><big><strong><font face="Arial">CMapiSession</font></strong></big><strong><font face="Arial"><big>::LoggedOn</big></font></strong></p>
+
+<p><strong><font face="Arial">BOOL LoggedOn() const;</font></strong></p>
+
+<p><font face="Arial"><strong>Remarks</strong></font></p>
+
+<p><font face="Arial">Simply accessor which returns TRUE if this instance is
+logged on to MAPI otherwise FALSE.</font></p>
+
+<p>&nbsp;</p>
+
+<p><a name="Logoff"></a><big><font face="Arial"><strong>CMapiSession</strong></font></big><font face="Arial"><strong><big>::Logoff</big></strong></font></p>
+
+<p><font face="Arial"><strong>BOOL Logon();</strong></font></p>
+
+<p class="rl"><strong><font face="Arial">Return Value</font></strong></p>
+
+<p class="t"><font face="Arial"> TRUE if you were successfully logged off from
+MAPI otherwise FALSE</font></p>
+
+<p><font face="Arial"><strong>Remarks</strong></font></p>
+
+<p><font face="Arial">The corollary function to Logon. Internally this function
+is called in the CMapiSession destructor.</font></p>
+
+<p>&nbsp;</p>
+
+<p><a name="Send"></a><big><font face="Arial"><strong>CMapiSession</strong></font></big><font face="Arial"><strong><big>::Send</big></strong></font></p>
+
+<p><font face="Arial"><strong>BOOL Send(CMapiMessage&amp; </strong>message<strong>);</strong></font></p>
+
+<p class="rl"><strong><font face="Arial">Return Value</font></strong></p>
+
+<p class="t"><font face="Arial"> TRUE if the message was successfully sent
+otherwise FALSE.</font></p>
+
+<p><font face="Arial"><strong>Parameters</strong></font></p>
+
+<p><font face="Arial"><em>message</em> Message to be sent</font></p>
+
+<p><font face="Arial"><strong>Remarks</strong></font></p>
+
+<p><font face="Arial">Sends the message as specfied in the &quot;message&quot;
+parameter, using the MAPI profile currently logged into.</font></p>
+
+<p>&nbsp;</p>
+
+<p><a name="MapiInstalled"></a><big><strong><font face="Arial">CMapiSession</font></strong></big><strong><font face="Arial"><big>::MapiInstalled</big></font></strong></p>
+
+<p><strong><font face="Arial">BOOL MapiInstalled() const;</font></strong></p>
+
+<p><font face="Arial"><strong>Remarks</strong></font></p>
+
+<p><font face="Arial">Simply accessor which returns TRUE if MAPI is installed
+and has been correctly initialised ready for this instance to use. The actual
+loading of the MAPI dll is handled internally by the CMapiSession constructor,
+meaning it is valid this function anytime after you have constructed a CMapiSession
+instance.</font></p>
+
+<p>&nbsp;</p>
+
+<p><a name="GetLastError"></a><big><strong><font face="Arial">CMapiSession</font></strong></big><big><strong><font face="Arial">::GetLastError</font></strong></big></p>
+
+<p><strong><font face="Arial">DWORD GetLastError() const;</font></strong></p>
+
+<p class="rl"><strong><font face="Arial">Return Value</font></strong></p>
+
+<p class="t"><font face="Arial">The last MAPI error generated by this CMapiSession
+instance.</font></p>
+
+<p><font face="Arial"><strong>Remarks</strong></font></p>
+
+<p><font face="Arial">Since the class uses MAPI which has its own way of reporting errors
+different to the standard Win32 way (GetLastError), this method allows this
+value to be retreived. MAPI errors are documented in the MAPI.h file in your VC
+include directory.</font></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial"><big><a name="Enhancements"></a></big><font color="#000000" size="4"><strong>PLANNED
+ENHANCEMENTS</strong></font> </font>
+
+<ul>
+  <li><font face="Arial">Package the code up into an OCX, COM Interface or DLL to allow non
+    MFC apps to use the code.</font></li>
+  <li><font face="Arial">Provide a better sample app. At the moment, it's very much a test
+    program which tests all of the functions in the classes provided.&nbsp;</font></li>
+  <li><font color="#000000" size="3" face="Arial">If you have any other suggested
+    improvements, please let me know so that I can incorporate them into the next release.</font></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial"><a name="Contact"></a><font color="#000000" size="4"><strong>CONTACTING
+THE AUTHOR</strong></font></font></p>
+
+<p><font color="#000000" size="3" face="Arial">PJ Naughter<br>
+Email: <a href="mailto:pjn@indigo..ie">pjn@indigo.ie</a><br>
+Web: <a href="http://indigo.ie/~pjn">http://indigo.ie/~pjn</a><br>
+5 December 1999</font></p>
+</body>
+</html>

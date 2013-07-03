@@ -1,0 +1,230 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\InternetAccess.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\InternetAccess.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_INTERNETACCESS_DIALOG DIALOGEX 0, 0, 366, 182
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | 
+    WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "CWebAccess Test"
+MENU IDR_MAIN
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Send",IDC_SEND,72,36,146,13,BS_FLAT
+    EDITTEXT        IDC_URL,39,7,190,12,ES_AUTOHSCROLL
+    LTEXT           "Url",IDC_STATIC,9,9,10,8
+    CONTROL         "Post Data",IDC_POST_DATA,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,14,36,45,12
+    LTEXT           "Url Data",IDC_STATIC,8,23,27,8
+    EDITTEXT        IDC_URL_DATA,39,21,190,12,ES_AUTOHSCROLL
+    GROUPBOX        "Default Connection Settings",IDC_STATIC,235,7,124,45
+    LTEXT           "Connection Type",IDC_STATIC,239,17,55,8
+    LTEXT           "",IDC_CONNECTION_TYPE,300,17,52,8
+    LTEXT           "Proxy",IDC_STATIC,240,28,20,8
+    LTEXT           "",IDC_PROXY,267,27,85,8
+    LTEXT           "Proxy bypass",IDC_STATIC,240,40,44,8
+    LTEXT           "",IDC_BYPASS,291,40,61,8
+    EDITTEXT        IDC_DATA_RECEIVED,7,122,352,43,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | WS_VSCROLL
+    EDITTEXT        IDC_DATA_SENT,7,66,352,43,ES_MULTILINE | ES_AUTOHSCROLL | 
+                    WS_DISABLED | WS_VSCROLL
+    LTEXT           "Data Sent",IDC_STATIC,10,55,33,8
+    LTEXT           "Data Received",IDC_STATIC,10,112,48,8
+    LTEXT           "",IDC_STATUS,7,168,352,11,0,WS_EX_CLIENTEDGE
+END
+
+IDD_DIALOG1 DIALOGEX 0, 0, 186, 70
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "About CWebAccess"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,73,49,50,14,BS_FLAT
+    PUSHBUTTON      "Cancel",IDCANCEL,129,49,50,14,BS_FLAT
+    LTEXT           "CWebAccess",IDC_STATIC,15,9,42,8
+    LTEXT           "Class for developing Internet Client Applications",
+                    IDC_STATIC,14,22,154,8
+    LTEXT           "Uraan Inc. (C) 2003-2005",IDC_STATIC,14,35,84,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "Uraan Inc"
+            VALUE "FileDescription", "CWebAccess Test Application"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "InternetAccess.exe"
+            VALUE "LegalCopyright", "(c) Uraan Inc.  All rights reserved."
+            VALUE "OriginalFilename", "InternetAccess.exe"
+            VALUE "ProductName", "CWebAccess Demo"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_INTERNETACCESS_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 359
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 179
+    END
+
+    IDD_DIALOG1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 63
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAIN MENU 
+BEGIN
+    POPUP "Test"
+    BEGIN
+        MENUITEM "Get Test",                    ID_TEST_GETTEST
+        MENUITEM "Post Test",                   ID_TEST_POSTTEST
+        MENUITEM SEPARATOR
+        MENUITEM "Exit",                        ID_TEST_EXIT
+    END
+    POPUP "Help"
+    BEGIN
+        MENUITEM "About CWebAccess",            ID_HELP_ABOUTCWEBACCESS
+    END
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#include "res\InternetAccess.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

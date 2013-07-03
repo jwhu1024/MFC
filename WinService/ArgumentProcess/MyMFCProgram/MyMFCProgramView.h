@@ -1,0 +1,67 @@
+// MyMFCProgramView.h : interface of the CMyMFCProgramView class
+//
+/////////////////////////////////////////////////////////////////////////////
+
+#if !defined(AFX_MYMFCPROGRAMVIEW_H__40A3C192_9063_42B2_9CBC_04A401454083__INCLUDED_)
+#define AFX_MYMFCPROGRAMVIEW_H__40A3C192_9063_42B2_9CBC_04A401454083__INCLUDED_
+
+#if _MSC_VER > 1000
+#pragma once
+#endif // _MSC_VER > 1000
+
+
+class CMyMFCProgramView : public CView
+{
+protected: // create from serialization only
+	CMyMFCProgramView();
+	DECLARE_DYNCREATE(CMyMFCProgramView)
+
+// Attributes
+public:
+	CMyMFCProgramDoc* GetDocument();
+
+// Operations
+public:
+
+// Overrides
+	// ClassWizard generated virtual function overrides
+	//{{AFX_VIRTUAL(CMyMFCProgramView)
+	public:
+	virtual void OnDraw(CDC* pDC);  // overridden to draw this view
+	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
+	protected:
+	virtual BOOL OnPreparePrinting(CPrintInfo* pInfo);
+	virtual void OnBeginPrinting(CDC* pDC, CPrintInfo* pInfo);
+	virtual void OnEndPrinting(CDC* pDC, CPrintInfo* pInfo);
+	//}}AFX_VIRTUAL
+
+// Implementation
+public:
+	virtual ~CMyMFCProgramView();
+#ifdef _DEBUG
+	virtual void AssertValid() const;
+	virtual void Dump(CDumpContext& dc) const;
+#endif
+
+protected:
+
+// Generated message map functions
+protected:
+	//{{AFX_MSG(CMyMFCProgramView)
+		// NOTE - the ClassWizard will add and remove member functions here.
+		//    DO NOT EDIT what you see in these blocks of generated code !
+	//}}AFX_MSG
+	DECLARE_MESSAGE_MAP()
+};
+
+#ifndef _DEBUG  // debug version in MyMFCProgramView.cpp
+inline CMyMFCProgramDoc* CMyMFCProgramView::GetDocument()
+   { return (CMyMFCProgramDoc*)m_pDocument; }
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+
+//{{AFX_INSERT_LOCATION}}
+// Microsoft Visual C++ will insert additional declarations immediately before the previous line.
+
+#endif // !defined(AFX_MYMFCPROGRAMVIEW_H__40A3C192_9063_42B2_9CBC_04A401454083__INCLUDED_)

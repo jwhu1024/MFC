@@ -1,0 +1,3 @@
+http://www.codeproject.com/Articles/1438/CMDITabs
+http://www.codeproject.com/Articles/269/A-multi-document-tabbed-interface
+http://www.codeproject.com/Articles/1090/A-set-of-classes-to-create-the-IE-style-GUI

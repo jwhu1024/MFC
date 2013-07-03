@@ -1,0 +1,375 @@
+CString::Compare
+int Compare( LPCTSTR lpsz ) const;
+返回值   
+字串一樣 返回0 
+小於lpsz  返回-1
+大於lpsz  返回1
+區分大小字元
+CString s1( "abc" );
+CString s2( "abd" );
+ASSERT( s1.Compare( s2 ) == -1 );
+ASSERT( s1.Compare( "abe" ) == -1 );
+ 
+CString::CompareNoCase
+int CompareNoCase( LPCTSTR lpsz ) const;
+返回值  
+字串一樣 返回0 
+小於lpsz  返回-1
+大於lpsz  返回1
+不區分大小字元
+ 
+CString::Collate
+int Collate( LPCTSTR lpsz ) const;
+同CString::Compare
+ 
+CString::CollateNoCase
+int CollateNocase( LPCTSTR lpsz ) const;
+同CString::CompareNoCase
+ 
+CString::CString
+CString( );
+CString( const CString& stringSrc );  
+CString( TCHAR ch, int nRepeat = 1 );  
+CString( LPCTSTR lpch, int nLength ); 
+CString( const unsigned char* psz );  
+CString( LPCWSTR lpsz );
+CString( LPCSTR lpsz ); 
+例子最容易說明問題
+CString s1;                      
+CString s2( "cat" );               
+CString s3 = s2;                  
+CString s4( s2 + " " + s3 );         
+CString s5( 'x' );                      // s5 = "x"
+CString s6( 'x', 6 );                  // s6 = "xxxxxx"
+CString s7((LPCSTR)ID_FILE_NEW);        // s7 = "Create a new document"
+CString city = "Philadelphia"; 
+ 
+CString::Delete
+int Delete( int nIndex, int nCount = 1);  
+返回值
+是被刪除前的字串的長度
+nIndex是第一個被刪除的字元，
+nCount是一次刪除幾個字元。
+根據我實驗得出的結果：
+當nCount>要刪除字串的最大長度(GetCount() - nIndex)時會出錯，
+當nCount過大，沒有足夠的字元刪除時，此函數不執行。
+例子
+CString str1,str2,str3;
+char a;
+str1 = "nihao";
+str2 = "nIhao";
+int x;
+// int i=(str1 == str2);       
+str1.Delete(2,3);
+如果nCount(3) > GetCount() – nIndex (5-2)就會執行錯誤
+ 
+CString::Empty
+Void Empty( );
+沒有返回值  
+清空操作;
+例子
+CString s( "abc" );
+s.Empty();
+ASSERT( s.GetLength( ) == 0 );
+ 
+CString::Find
+int Find( TCHAR ch ) const;
+int Find( LPCTSTR lpszSub ) const;
+int Find( TCHAR ch, int nStart ) const;
+int Find( LPCTSTR lpszSub, int nStart ) const;
+返回值  
+不匹配的話返回 -1;  
+索引以0 開始 nStar 代表以索引值nStart 的字元開始搜索 ,
+即為包含以索引nStart字元後的字串
+例子
+CString s( "abcdef" );
+ASSERT( s.Find( 'c' ) == 2 );
+ASSERT( s.Find( "de" ) == 3 );
+Cstring str(“The stars are aligned”);
+Ing n = str.Find('e',5);
+ASSERT(n == 12)
+ 
+CString::FindOneOf
+int FindOneOf( LPCTSTR lpszCharSet ) const;
+返回值  
+不匹配的話返回 -1;  
+索引以0 開始
+注意::返回此字串中第一個在lpszCharSet中 也包括字元並且從零開始的索引值
+例子
+CString s( "abcdef" );
+ASSERT( s.FindOneOf( "xd" ) == 3 ); // 'd' is first match.
+ 
+CString::Format
+void Format( LPCTSTR lpszFormat, ... );
+void Format( UINT nFormatID, ... );
+lpszFormat  一個格式控制字串
+nFormatID  字串識別字
+例子 
+CString str;
+Str.Format(“%d”,13);  
+此時Str為13
+ 
+CString::GetAt
+TCHAR GetAt( int nIndex ) const;
+返回標號為nIndex的字元，
+你可以把字串理解為一個陣列，
+GetAt類似於[].注意nIndex的範圍，
+如果不合適會有調試錯誤。
+ 
+CString::GetBuffer
+LPTSTR GetBuffer( int nMinBufLength );
+返回值
+一個指向物件的（以空字元結尾的）字元緩衝區的LPTSTR 指標。
+參數
+nMinBufLength
+字元緩衝區的以字元數表示的最小容量。這個值不包括一個結尾的空字元的空間。
+說明
+此成員函數返回一個指向CString 物件的內部字元緩衝區的指標。
+返回的LPTSTR 不是const，
+因此可以允許直接修改CString 的內容。
+如果你使用由GetBuffer 返回的指標來改變字串的內容，
+你必須在使用其他的CString 成員函數之前調用ReleaseBuffer 函數。
+在調用ReleaseBuffer 之後，
+由GetBuffer 返回的位址也許就無效了，
+因為其他的CString 操作可能會導致CString 緩衝區被重新分配。
+如果你沒有改變此CString 的長度，
+則緩衝區不會被重新分配。
+當此CString 物件被銷毀時，
+其緩衝區記憶體將被自動釋放。
+注意，如果你自己知道字串的長度，
+則你不應該添加結尾的空字元。
+但是，當你用ReleaseBuffer 來釋放該緩衝區時，
+你必須指定最後的字串長度。
+如果你添加了結尾的空字元， 
+你應該給ReleaseBuffer 的長度參數傳遞-1 ，
+ReleaseBuffer 將對該緩衝區執行strlen 來確定它的長度。
+下面的例子說明了如何用CString::GetBuffer。
+// CString::GetBuffer 例子
+CString s( "abcd" );
+#ifdef _DEBUG
+afxDump << "CString s " << s << "\n";
+#endif
+LPTSTR p = s.GetBuffer( 10 );
+strcpy( p, "Hello" ); // 直接訪問CString 物件。
+s.ReleaseBuffer( );
+#ifdef _DEBUG
+afxDump << "CString s " << s << "\n";
+#endif
+ 
+CString::GetLength
+int GetLength( ) const;
+返回值
+返回字串中的位元組計數。
+說明
+此成員函數用來獲取這個CString 物件中的位元組計數。這個計數不包括結尾的空字元。
+對於多位元組字元集（MBCS），GetLength 按每一個8 位元字元計數；即，在一個多位元組字元中的開始和結尾位元組被算作兩個位元組。
+示例
+下面的例子說明了如何使用CString::GetLength。
+// CString::GetLength 示例
+CString s( "abcdef" );
+ASSERT( s.GetLength() == 6 );
+ 
+CString::Insert
+int Insert( int nIndex, TCHAR ch );  
+int Insert( int nIndex, LPCTSTR pstr ); 
+返回修改後的長度，nIndex是字元（或字串）插入後的索引號例子
+CString str( “HockeyBest”); 
+ int n = str.Insert( 6, “is” ); 
+ ASSERT( n == str.GetLength( ) );  
+printf( “1: %s\n”, ( LPCTSTR ) str ); 
+ n = str.Insert( 6, ' ' );  
+ASSERT( n == str.GetLength( ) );  
+printf ( “2: %s\n”, (LPCTSTR) STR ); 
+ n = str.Insert(555, ‘1’);
+ASSERT( n == str.GetLength ( ) ); 
+ printf ( “3: %s\n”, ( LPCTSTR ) str );
+輸出
+1. Hockeyis Best
+2. Hockey is Best
+3. Hockey is Best!
+ 
+CString::IsEmpty
+BOOL IsEmpty( ) const;
+返回值
+如果CString 物件的長度為0，則返回非零值；否則返回0。
+說明
+此成員函數用來測試一個CString 物件是否是空的。
+示例
+下面的例子說明了如何使用CString::IsEmpty。
+// CString::IsEmpty 示例
+CString s;
+ASSERT( s.IsEmpty() );
+請參閱 CString::GetLength
+ 
+CString::Left
+CString Left( int nCount ) const;  
+throw( CMemoryException );
+返回的字串是前nCount個字元。 
+例子
+CString s( _T("abcdef") );
+ASSERT( s.Left(2) == _T("ab") );
+ 
+CString::LoadString
+BOOL LoadString( UINT nID );
+throw( CMemoryException );
+返回值
+如果載入資源成功則返回非零值；否則返回0。
+nID  一個Windows 字串資源ID。
+說明
+此成員函數用來讀取一個由nID 標識的Windows 字串資源，並放入一個已有CString 物件中。
+示例
+下面的例子說明了如何使用CString::LoadString。
+// CString::LoadString 示例
+#define IDS_FILENOTFOUND 1
+CString s;
+if (! s.LoadString( IDS_FILENOTFOUND ))
+ 
+CString::MakeLower
+void MakeLower( );
+改變字元的小寫
+ 
+CString::MakeReverse
+void MakeReverse( );
+字元倒置
+ 
+CString::MakeUpper
+void MakeUpper( );
+改變字元的大寫
+CString::Mid
+CString Mid( int nFirst ) const;  
+CString Mid( int nFirst, int nCount ) const;  
+nCount代表要提取的字元數, nFirst代表要提取的開始索引位置
+例子
+CString s( _T("abcdef") );
+ASSERT( s.Mid( 2, 3 ) == _T("cde") );
+CString::ReleaseBuffer
+void ReleaseBuffer( int nNewLength = -1 );
+參數
+nNewLength
+此字串的以字元數表示的新長度，不計算結尾的空字元。如果這個字
+符串是以空字元結尾的，則參數的缺省值－1 將把CString 的大小設置為
+字串的當前長度。
+說明
+使用ReleaseBuffer 來結束對由GetBuffer 分配的緩衝區的使用。如果你知道緩
+沖區中的字串是以空字元結尾的，則可以省略nNewLength 參數。如果字元
+串不是以空字元結尾的，則可以使用nNewLength 指定字串的長度。在調用
+ReleaseBuffer 或其他CString 操作之後，由GetBuffer 返回的位址是無效的。
+示例
+下面的例子說明了如何使用CString::ReleaseBuffer。
+// CString::ReleaseBuffer 示例
+CString s;
+s = "abc";
+LPTSTR p = s.GetBuffer( 1024 );
+strcpy(p, "abc"); // 直接使用該緩衝區
+ASSERT( s.GetLength() == 3 ); // 字串長度 = 3
+s.ReleaseBuffer(); // 釋放多餘的記憶體，現在p 無效。
+ASSERT( s.GetLength() == 3 ); // 長度仍然是3
+ 
+CString::Remove
+int CString::Remove ( TCHAR ch );
+返回值
+返回從字串中移走的字元數。如果字串沒有改變則返回零。
+參數
+ch
+要從一個字串中移走的字元。
+說明
+此成員函數用來將ch 實例從字串中移走。與這個字元的比較是區分大小寫
+的。
+示例
+// 從一個句子中移走小寫字母'c':
+CString str (“This is a test.”);
+int n = str.Remove( 't' );
+ASSERT( n == 2 );
+ASSERT( str ==“This is a es. ” );
+ 
+CString::Replace
+int Replace( TCHAR chOld, TCHAR chNew );
+int Replace( LPCTSTR lpszOld, LPCTSTR lpszNew );
+返回值
+返回被替換的字元數。如果這個字串沒有改變則返回零。
+參數
+chOld
+要被chNew 替換的字元。
+chNew
+要用來替換chOld 的字元。
+lpszOld
+一個指向字串的指標，該字串包含了要被lpszNew 替換的字元。
+lpszNew
+一個指向字串的指標，該字串包含了要用來替換lpszOld 的字元。
+說明
+此成員函數用一個字元替換另一個字元。函數的第一個原形在字串中用chNew
+現場替換chOld。函數的第二個原形用lpszNew 指定的字串替換lpszOld 指定
+的子串。
+在替換之後，該字串有可能增長或縮短；那是因為lpszNew 和lpszOld 的長度
+不需要是相等的。兩種版本形式都進行區分大小寫的匹配。
+示例
+// 第一個例子，old 和new 具有相同的長度。
+CString strZap( “C - -” );
+int n = strZap.Replace('-', '+' );
+ASSERT( n == 2 );
+ASSERT(strZap == “C++” );
+// 第二個例子，old 和new 具有不同的長度。
+CString strBang( “Everybody likes ice hockey” );
+n = strBang.Replace( “hockey”, “golf” );
+ASSERT( n ==1 );
+n = strBang.Replace ( “likes” , “plays” );
+ASSERT( n == 1 );
+n = strBang.Replace( “ice”, NULL );
+ASSERT( n == 1 );
+ASSERT( strBang == “Everybody plays golg” );
+// 注意，現在在你的句子中有了一個額外的空格。
+// 要移走這個額外的空格，可以將它包括在要被替換的字串中，例如，“ice ”。
+ 
+CString::ReverseFind
+int ReverseFind( TCHAR ch ) const;
+返回值
+返回此CString 物件中與要求的字元匹配的最後一個字元的索引；如果沒有找
+到需要的字元則返回-1。
+參數
+ch
+要搜索的字元。
+說明
+此成員函數在此CString 物件中搜索與一個子串匹配的最後一個字元。此函數
+類似于運行時函數strrchr。
+示例
+// CString::ReverseFind 示例
+CString s( "abcabc" );
+ASSERT( s.ReverseFind( 'b' ) == 4 );
+ 
+CString::Right
+CString Right( int nCount ) const;  
+throw( CMemoryException );
+返回的字串是最後nCount個字元。
+CString s( _T("abcdef") );
+ASSERT( s.Right(2) == _T("ef") );
+ 
+CString:: SetAt
+void SetAt( int nIndex, TCHAR ch );
+你可以把字串理解為一個陣列，SetAt類似於[].注意nIndex的範圍，如果不合適會有調試錯誤。 Ch 更替字元, 把nIndex位置上的字元 變成ch
+CString s( "abc" );
+s.MakeReverse();
+ASSERT( s == "cba" );
+ 
+CString::TrimLeft
+void TrimLeft( );
+void CString::TrimLeft( TCHAR chTarget );
+如果沒有參數,從左刪除字元(\n\t空格等),至到遇到一個非此類字元.
+當然你也可以指定刪除那些字元. 
+如果指定的參數是字串,那麼遇上其中的一個字元就刪除.
+\n  換行符 
+\t  TAB字元
+CString str = "\n\t a"; 
+str.TrimLeft(); 
+str為“a”; 
+CString str = "abbcadbabcadb "; 
+str.TrimLeft("ab"); 
+結果"cadbabcadb "
+str.TrimLeft("ac");
+結果"bcadbabcadb "
+ 
+CString::TrimRight
+void TrimRight( );
+void CString::TrimRight( TCHAR chTarget );
+void CString::TrimRight( LPCTSTR lpszTargets );
+同上
+

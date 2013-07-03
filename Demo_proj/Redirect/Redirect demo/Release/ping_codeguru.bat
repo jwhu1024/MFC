@@ -1,0 +1,3 @@
+@ECHO OFF
+echo pinging ftp.codeguru.com ...
+ping ftp.codeguru.com

@@ -1,0 +1,26 @@
+方法一： ?入manifest文件1.如果你使用的是VC6或者vs2003，,2005，通??入manifest文件解?view plain
+copy to clipboard
+
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?> 
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0"> 
+<assemblyIdentity 
+version="1.0.0.0" 
+processorArchitecture="X86" 
+name="test.exe.manifest" 
+type="win32" 
+/> 
+<trustInfo xmlns="urn:schemas-microsoft-com:asm.v3"> 
+<security> 
+<requestedPrivileges> 
+<requestedExecutionLevel level="requireAdministrator" uiAccess="false"/> 
+</requestedPrivileges> 
+</security> 
+</trustInfo> 
+</assembly> 
+
+注：此文件只要?展名是.manifest文件名可以任意。文件?容的name?性值也可以?任意。（VC6.0下????)2.把此文件"import"到?源文件中,?源?型?24,?源ID?1,注:????源?型必??24,?源ID也必??1,3.重新??即可，在windows7下?程序??有一?盾?小??，???行?出???框要求提升?管理??限。如果是vs2008或者2010，就比???了，直接?目右?---?性---?接器---清?文件---uac?行?? ??requireAdministrator 重新?? ??你的程序直接?行就?有管理??限了。程序就?出?一?盾牌。
+方法二:修改注?表:Windows Registry Editor Version 5.00[HKEY_CURRENT_USER\Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers]
+"C:\\Program Files\\win7test2.exe"="RUNASADMIN"?上面的?容保存?.reg文件，基中把C:\\Program Files\\win7test2.exe改?真??境的?用程序地址,???行即可。 ?种方法后?用程序??不?有盾???，但???行仍然??出??框要求提升?限。
+
+http://www.itkee.com/os/detail-d7e.html

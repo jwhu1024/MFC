@@ -1,0 +1,4 @@
+先進到 windows/system32底下
+bcdedit.exe /set TESTSIGNING ON                    ...TEST Mode SIGN X64
+
+在win7 driver沒SIGN過時  一定要將win7系統切換至test mode指令如上

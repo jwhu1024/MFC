@@ -1,0 +1,416 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="EnumCD.htm_files/filelist.xml">
+<title>Q - Enumerate CD drives and get their properties/capabilities</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>khalidsa</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>khalidsa</o:LastAuthor>
+  <o:Revision>4</o:Revision>
+  <o:TotalTime>15</o:TotalTime>
+  <o:Created>2001-08-03T19:54:00Z</o:Created>
+  <o:LastSaved>2001-08-17T16:21:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>746</o:Words>
+  <o:Characters>4255</o:Characters>
+  <o:Company>Microsoft Corporation</o:Company>
+  <o:Lines>35</o:Lines>
+  <o:Paragraphs>9</o:Paragraphs>
+  <o:CharactersWithSpaces>4992</o:CharactersWithSpaces>
+  <o:Version>10.2625</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:536871559 0 0 0 415 0;}
+@font-face
+	{font-family:"Verdana\, Arial\, Helvetica";
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+	mso-font-alt:"Times New Roman";
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:auto;
+	mso-font-signature:0 0 0 0 0 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h2
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:13.5pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:13.0pt;
+	font-family:Arial;
+	font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:14.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+span.propertybanner1
+	{mso-style-name:propertybanner1;
+	mso-ansi-font-size:9.0pt;
+	mso-bidi-font-size:9.0pt;
+	font-family:"Verdana\, Arial\, Helvetica";
+	mso-ascii-font-family:"Verdana\, Arial\, Helvetica";
+	mso-hansi-font-family:"Verdana\, Arial\, Helvetica";
+	background:silver;
+	font-weight:bold;
+	font-style:italic;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:1.5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <h2><a name=TOP><span style='font-size:14.0pt;font-family:Verdana;color:black'>Enumerate
+  CD Drives and Get Their Properties/Capabilities<o:p></o:p></span></a></h2>
+  </td>
+  <span style='mso-bookmark:TOP'></span>
+ </tr>
+</table>
+
+<span style='mso-bookmark:TOP'></span>
+
+<h2><span style='font-family:Verdana;color:black'>SUMMARY<o:p></o:p></span></h2>
+
+<p><span style='font-size:10.0pt;font-family:Verdana;color:black'>Win32
+applications can use the <span class=SpellE><b>SetupDi<i>xxx</i></b></span>
+APIs to enumerate all of the devices that are available on a computer. The <span
+class=SpellE>EnumCD</span> sample provided through this article demonstrates
+this technique by enumerating all the CD drives regardless of their bus type.
+The sample also obtains a handle to the device to send IOCTL commands to get
+the adapter and device properties. It also uses SCSI pass-through commands to
+get the inquiry data and the drive capabilities.<br>
+<br>
+<b>Note</b>: Drive capabilities can be only obtained for drives that support
+SCSI-3 multimedia commands (MMC). <o:p></o:p></span></p>
+
+<h3><span style='font-family:Verdana;color:black'>Device Enumeration<o:p></o:p></span></h3>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana;
+color:black'>The <span class=SpellE>EnumCD</span> sample uses the device <b>Setup</b>
+class globally unique identifier (GUID) GUID_DEVCLASS_CDROM to enumerate all
+the CD drives that are installed on the computer. The sample then obtains the
+device ID by getting the registry properties. <br>
+<br>
+The handle to the device is needed to send <span class=SpellE>IOCTLs</span>
+from a Win32 application. The device handle can be obtained by opening the
+device by using the device interface name. The CD-ROM class driver exposes this
+interface by registering the device interface. It uses the <span class=SpellE>CdRomClassGuid</span>
+interface GUID for device registration. A Win32 application can obtain all the
+registered CD-ROM interfaces by using the <span class=SpellE><b>SetupDi<i>xxx</i></b></span>
+APIs with the same interface GUID in a loop. Because this interface
+registration is done by the CD-ROM class driver, this technique will work for
+all types of CD drives, such as SCSI, IDE, USB, and 1394. <o:p></o:p></span></p>
+
+<h3><span style='font-family:Verdana;color:black'>Device Properties</span><span
+style='font-size:13.5pt;font-family:Verdana;color:black'><o:p></o:p></span></h3>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana;
+color:black'>IOCTL_STORAGE_QUERY_PROPERTY can be used to get the adapter and
+device properties. This IOCTL takes the STORAGE_PROPERTY_QUERY data structure
+as an argument. Before calling this IOCTL, the STORAGE_PROPERTY_ID and
+STORAGE_QUERY_TYPE members must be set accordingly. The STORAGE_PROPERTY_ID can
+be set to either <span class=SpellE>StorageAdapterProperty</span> or <span
+class=SpellE>StorageDeviceProperty</span>, and it determines the property to be
+returned. <br>
+<br>
+Calling this <span class=SpellE>StorageAdapterProperty</span> IOCTL returns the
+STORAGE_ADAPTER_DESCRIPTOR data structure, which contains adapter properties
+such as the bus type, maximum transfer length, alignment mask, and so on. <span
+class=SpellE>StorageDeviceProperty</span> returns the STORAGE_DEVICE_DESCRIPTOR
+data structure, which contains the device type, vendor ID, product ID, and so
+forth. This information is obtained from the respective port driver. See the
+Windows 2000 DDK Documentation, which is available from the following Web site,
+for more information about this IOCTL and data structures: <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana;
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana;
+color:black'><a href="http://www.microsoft.com/ddk/">http://www.microsoft.com/ddk/</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana;
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana;
+color:black'>IOCTL_STORAGE_GET_MEDIA_TYPES_EX is used to get information about
+types of media supported by a CD drive (whether it is a CD-ROM or DVD drive).
+It does not tell whether it is a reader/writer or what types of discs it
+supports. However, this information can be obtained by getting the Mode Sense
+page. <o:p></o:p></span></p>
+
+<h3><span style='font-family:Verdana;color:black'>SCSI Pass-Through Interface</span><span
+style='font-size:13.5pt;font-family:Verdana;color:black'><o:p></o:p></span></h3>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana;
+color:black'>The device handle obtained is also used to send SCSI pass-through
+commands to the device. The sample sends the <b>Inquiry</b> command to the
+device to get the Inquiry data. <br>
+<br>
+The sample also sends a <b>Mode Sense</b> command to read the &quot;CD
+Capabilities and Mechanical Status&quot; parameter page from the device. This
+page contains (among other things) information about the capabilities of the CD
+drive including whether it is a CD or DVD drive, whether it supports reading or
+writing, and the media types it supports (such as CD-R/RW or DVD-ROM/R/RAM). As
+mentioned previously, this parameter page is only defined in the SCSI-3 MMC
+specification. Devices that do not support this specification will return an
+error. <br>
+<br>
+Refer to the SPTI sample, available in the Windows 2000 DDK, for more
+information on the SCSI pass-through interface. <o:p></o:p></span></p>
+
+<h3><span style='font-family:Verdana;color:black'>Building the Sample</span><span
+style='font-size:13.5pt;font-family:Verdana;color:black'><o:p></o:p></span></h3>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana;
+color:black'>Under the Development Kits program group, click the <b>Free Build
+Environment</b> or <b>Checked Build Environment</b> icon to set the basic
+environment variables that are needed by the Build utility. <br>
+<br>
+Change to the folder that contains the device source code, for example: <o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span class=GramE><b><span
+style='font-size:10.0pt;font-family:Verdana;color:black'>cd</span></b></span></span><b><span
+style='font-size:10.0pt;font-family:Verdana;color:black'> c:\EnumCD</span></b><span
+style='font-size:10.0pt;font-family:Verdana;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana;
+color:black'>Run the Build utility by typing <b>build -<span class=SpellE>ceZ</span></b>
+or use the BLD macro. This method invokes the Microsoft make routines that
+produce log files named <span class=SpellE>Build<i>xxx</i>.log</span>, <span
+class=SpellE>Build<i>xxx</i>.wrn</span>, and <span class=SpellE>Build<i>xxx</i>.err</span>,
+if there are any warnings or errors. Note that <i>xxx</i> stands for &quot;<span
+class=SpellE>fre</span>&quot; or &quot;<span class=SpellE>chk</span>&quot;
+depending on the environment chosen. If the build succeeds, the executable
+EnumCD.exe file is placed in a platform-specific subfolder of your <i>&lt;<span
+class=SpellE>TargetPath</span>&gt;</i> folder that is specified in the Sources
+file. <o:p></o:p></span></p>
+
+<h3><span style='font-family:Verdana;color:black'>Running the EnumCD.exe Sample</span><span
+style='font-size:13.5pt;font-family:Verdana;color:black'><o:p></o:p></span></h3>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana;
+color:black'>This sample does not require any arguments. Run the sample from a
+command-prompt. Properties of all the CD drives will be listed.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana;
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana;
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<h3><span style='font-size:12.0pt;font-family:Verdana'>CODE TOUR<o:p></o:p></span></h3>
+
+<h4><span style='font-size:12.0pt;mso-bidi-font-family:"Courier New"'>&nbsp;</span><span
+style='font-size:12.0pt;font-family:Verdana'>File Manifest<o:p></o:p></span></h4>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana;
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt'><span style='font-size:10.0pt;
+font-family:Verdana;color:black'>The EnumCD.exe file contains the following
+files: <o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=1 cellpadding=0 style='mso-cellspacing:1.5pt;
+ border:solid windowtext 1.0pt;border-right:ridge windowtext 2.25pt;mso-border-alt:
+ solid windowtext .75pt;mso-border-right-alt:three-d-emboss windowtext 2.25pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='mso-yfti-irow:0'>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-size:10.0pt;font-family:Verdana;color:black'>File name<o:p></o:p></span></b></p>
+  </td>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-size:10.0pt;font-family:Verdana;color:black'>Description<o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span class=SpellE><span style='font-size:10.0pt;
+  font-family:Verdana;color:black'>EnumCD.c</span></span><span
+  style='font-size:10.0pt;font-family:Verdana;color:black'><o:p></o:p></span></p>
+  </td>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana;
+  color:black'>Implements the Win32 application to enumerate the CD drives<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span class=SpellE><span style='font-size:10.0pt;
+  font-family:Verdana;color:black'>EnumCD.h</span></span><span
+  style='font-size:10.0pt;font-family:Verdana;color:black'><o:p></o:p></span></p>
+  </td>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana;
+  color:black'>Header file for <span class=SpellE>EnumCD.c</span><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3'>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana;
+  color:black'>EnumCD.htm<o:p></o:p></span></p>
+  </td>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana;
+  color:black'>Documentation for these samples<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4'>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana;
+  color:black'>EnumCD.exe<o:p></o:p></span></p>
+  </td>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana;
+  color:black'>Windows 2000 executable program (free build)<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5;mso-yfti-lastrow:yes'>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana;
+  color:black'>Sources<o:p></o:p></span></p>
+  </td>
+  <td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana;
+  mso-bidi-font-family:"Courier New"'>DDK build instructions</span><span
+  style='font-size:10.0pt;font-family:Verdana;color:black'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana;
+color:black'><br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

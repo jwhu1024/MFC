@@ -1,0 +1,3 @@
+Introduction
+
+I recently wrote an MFC SDI application that depending on the command line argument would startup either in normal or minmized mode. I noticed when I attempted to initialize the app in minimized mode, the window would briefly "flash" in its normal state before minimizing. After searching for and not finding a simple, elegant solution to this problem, I went into the MFC code to see if I could find the source of this problem (PUN intended), and if I could resolve the issue in my client application. If you have had similar problems, please read on.

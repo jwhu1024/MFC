@@ -1,0 +1,11 @@
+1. 確認Client在Server沒啟動時, Connect是否會阻塞  ->  Connect用ioctlsocket設置非阻塞模式
+2. Client端Send or Recv設置超時  ->  setsockopt (SO_SNDTIMEO, SO_RCVTIMEO)
+
+http://www.cchsu.com/arthur/prg_bg5/winsock.htm
+http://yahnn.blog.163.com/blog/static/1373432682011229113354836/
+http://www.winu.cn/space-14160-do-blog-id-3218.html
+http://www.eng.tau.ac.il/~isp/Recitations/Select.cpp
+http://www.cnblogs.com/lancidie/archive/2011/05/14/2046022.html
+http://blog.yam.com/ezkuro/article/12752838
+http://www.cnblogs.com/paker/archive/2005/11/28/286426.html  == 2
+http://blog.csdn.net/satanwxd/article/details/6085044

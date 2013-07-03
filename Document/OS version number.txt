@@ -1,0 +1,76 @@
+Operating system Version number 
+
+				Windows 7 		  6.1 
+Windows Server 2008 R2    6.1 
+Windows Server 2008       6.0 
+				Windows Vista 		  6.0 
+Windows Server 2003 R2    5.2 
+Windows Server 2003 	  5.2 
+Windows XP 64-Bit Edition 5.2 
+				Windows XP 		  5.1 
+Windows 2000 		  5.0 
+
+http://www.installsite.org/cgi-bin/frames.cgi?url=http%3A%2F%2Fwww.installsite.org%2Fpages%2Fen%2Fhelp.htm
+http://www.installsite.org/pages/en/isnews/200011/index.htm
+
+
+
+// InstallShield 6 requires that ifx.h be included
+#if _ISCRIPT_VER >= 0x600
+    #include "ifx.h"
+#endif
+
+NUMBER nvWinFamily, nvWinMajor, nvWinMinor;
+STRING svResult;
+
+program
+    // Detect Windows family
+    GetSystemInfo(OS, nvWinFamily, svResult);
+    
+    if ( nvWinFamily = IS_WINDOWSNT ) then
+    
+        // Check for NT 4 or Windows 2000
+        GetSystemInfo(WINMAJOR, nvWinMajor, svResult);
+        if ( nvWinMajor >= 5 ) then
+            MessageBox("Windows 2000 or above detected", INFORMATION);
+        elseif ( nvWinMajor = 4 ) then
+            MessageBox("Windows NT 4 detected", INFORMATION);
+        elseif ( nvWinMajor = 3 ) then
+            MessageBox("Windows NT 3 detected", INFORMATION);
+        else
+            MessageBox("Unknown Windows NT version", INFORMATION);
+        endif;
+    
+    elseif ( nvWinFamily = IS_WINDOWS95 ) then
+    
+        // Check for Windows 95, Windows 98, or Windows Me
+        GetSystemInfo(WINMAJOR, nvWinMajor, svResult);
+        GetSystemInfo(WINMINOR, nvWinMinor, svResult);
+       
+        if ( nvWinMajor = 4 ) then
+            if ( nvWinMinor >= 90 ) then
+                MessageBox("Windows Me or above detected", INFORMATION);
+            elseif ( nvWinMinor >= 10) then
+#if _ISCRIPT_VER >= 0x600
+                MessageBox("Windows 98 detected", INFORMATION);
+#else
+                // In IS5 Windows Me lies about its version
+                // so we check the file version of kernel32.dll
+                VerGetFileVersion(WINSYSDIR ^ "kernel32.dll", svResult);
+                if ( VerCompare(svResult, "4.90.0.0", VERSION) = LESS_THAN ) then
+                    MessageBox("Windows 98 detected", INFORMATION);
+                else
+                    MessageBox("Windows Me or above detected", INFORMATION);
+                endif;
+#endif
+            else
+                MessageBox("Windows 95 detected", INFORMATION);
+            endif;
+        else
+            MessageBox("Unknown Windows 9x version", INFORMATION);
+        endif;
+    
+    else
+        MessageBox("No 32 bit operating system", WARNING);
+    endif;
+endprogram

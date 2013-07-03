@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Serial">
+</Property><Property Name="方案檔" Value="C:\Documents and Settings\lester_hu\桌面\Serial\Serial.sln">
+</Property><Property Name="Date" Value="2012年5月11日">
+</Property><Property Name="Time" Value="上午 10:41">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="Serial.sln" Description="檔案已成功備份為 C:\Documents and Settings\lester_hu\桌面\Serial\Serial.sln.old">
+</Event><Event ErrorLevel="0" Project="HelloWorld" Source="HelloWorld\HelloWorld.vcproj" Description="Visual C++ 現在可支援 C 執行階段程式庫的安全版本。此程式庫的使用呈預設開啟狀態。建置專案時，您可能會看到幾個有關取代函式的警告。建議您更正這些警告，以提高程式碼的安全性。">
+</Event><Event ErrorLevel="0" Project="HelloWorld" Source="HelloWorld\HelloWorld.vcproj" Description="C/C++ 編譯器預設值已修改，以更加相容於 ISO Standard C++。這些變更包括針對迴圈範圍強制使用 Standard C++，以及支援 wchar_t 做為原生型別。這些變更可能會造成現有的程式碼在編譯時，一定要變更程式碼或其用以建置的編譯器選項。">
+</Event><Event ErrorLevel="0" Project="HelloWorld" Source="HelloWorld\HelloWorld.vcproj" Description="已從 C++ 編譯器移除單一執行緒執行階段程式庫參數 (/MLd、/ML)。專案已自動轉換為使用對應的多執行緒執行階段程式庫參數 (/MTd、/MT)。">
+</Event><Event ErrorLevel="1" Project="HelloWorld" Source="HelloWorld\HelloWorld.vcproj" Description="C/C++ 編譯器參數 /Og 已經被取代，並已從您的專案設定移除。建議您改用 /O1 或 /O2。">
+</Event><Event ErrorLevel="1" Project="HelloWorld" Source="HelloWorld\HelloWorld.vcproj" Description="由於 Visual C++ 專案必須產生內嵌的 (預設情況下) Windows SxS 資訊清單，因此使用資訊清單工具進行建置時，將自動排除專案中的資訊清單檔案。建議您將所有資訊清單檔案中包含的相依性資訊轉換成 (原始程式碼所 Include 的) 標頭檔中的 &quot;#pragma comment(linker,&quot;&lt;在此插入相依性&gt;&quot;)&quot;。如果您的專案已經透過資源 (.rc) 檔將資訊清單內嵌在 RT_MANIFEST 資源區段中，您必須先將該行標記為註解，然後才能正確建置專案。">
+</Event><Event ErrorLevel="1" Project="HelloWorld" Source="HelloWorld\HelloWorld.vcproj" Description="由於 C++ 編譯器中的一致變更，可能會需要程式碼變更，專案才能建置無誤。舊版的 C++ 編譯器允許按照成員函數名稱指定成員函數指標 (例如 MemberFunctionName)。C++ 標準需要將完整限定名稱與傳址運算子搭配使用 (例如 &amp;ClassName::MemberFunctionName)。如果您的專案包含 Windows Form 設計工具中使用的表單或控制項，就必須變更 InitializeComponent 中的程式碼，因為產生程式碼的設計工具在委派建構中是使用非一致的語法 (用於事件處理常式)。">
+</Event><Event ErrorLevel="0" Project="HelloWorld" Source="HelloWorld\HelloWorld.vcproj" Description="專案檔已成功備份為 'C:\Documents and Settings\lester_hu\桌面\Serial\HelloWorld\HelloWorld.vcproj.7.10.old'。">
+</Event><Event ErrorLevel="0" Project="HelloWorld" Source="HelloWorld\HelloWorld.vcproj" Description="專案升級成功。">
+</Event><Event ErrorLevel="3" Project="HelloWorld" Source="HelloWorld\HelloWorld.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Listener" Source="Listener\Listener.vcproj" Description="Visual C++ 現在可支援 C 執行階段程式庫的安全版本。此程式庫的使用呈預設開啟狀態。建置專案時，您可能會看到幾個有關取代函式的警告。建議您更正這些警告，以提高程式碼的安全性。">
+</Event><Event ErrorLevel="0" Project="Listener" Source="Listener\Listener.vcproj" Description="C/C++ 編譯器預設值已修改，以更加相容於 ISO Standard C++。這些變更包括針對迴圈範圍強制使用 Standard C++，以及支援 wchar_t 做為原生型別。這些變更可能會造成現有的程式碼在編譯時，一定要變更程式碼或其用以建置的編譯器選項。">
+</Event><Event ErrorLevel="1" Project="Listener" Source="Listener\Listener.vcproj" Description="C/C++ 編譯器參數 /Og 已經被取代，並已從您的專案設定移除。建議您改用 /O1 或 /O2。">
+</Event><Event ErrorLevel="0" Project="Listener" Source="Listener\Listener.vcproj" Description="已從 C++ 編譯器移除單一執行緒執行階段程式庫參數 (/MLd、/ML)。專案已自動轉換為使用對應的多執行緒執行階段程式庫參數 (/MTd、/MT)。">
+</Event><Event ErrorLevel="1" Project="Listener" Source="Listener\Listener.vcproj" Description="由於 Visual C++ 專案必須產生內嵌的 (預設情況下) Windows SxS 資訊清單，因此使用資訊清單工具進行建置時，將自動排除專案中的資訊清單檔案。建議您將所有資訊清單檔案中包含的相依性資訊轉換成 (原始程式碼所 Include 的) 標頭檔中的 &quot;#pragma comment(linker,&quot;&lt;在此插入相依性&gt;&quot;)&quot;。如果您的專案已經透過資源 (.rc) 檔將資訊清單內嵌在 RT_MANIFEST 資源區段中，您必須先將該行標記為註解，然後才能正確建置專案。">
+</Event><Event ErrorLevel="1" Project="Listener" Source="Listener\Listener.vcproj" Description="由於 C++ 編譯器中的一致變更，可能會需要程式碼變更，專案才能建置無誤。舊版的 C++ 編譯器允許按照成員函數名稱指定成員函數指標 (例如 MemberFunctionName)。C++ 標準需要將完整限定名稱與傳址運算子搭配使用 (例如 &amp;ClassName::MemberFunctionName)。如果您的專案包含 Windows Form 設計工具中使用的表單或控制項，就必須變更 InitializeComponent 中的程式碼，因為產生程式碼的設計工具在委派建構中是使用非一致的語法 (用於事件處理常式)。">
+</Event><Event ErrorLevel="0" Project="Listener" Source="Listener\Listener.vcproj" Description="專案檔已成功備份為 'C:\Documents and Settings\lester_hu\桌面\Serial\Listener\Listener.vcproj.7.10.old'。">
+</Event><Event ErrorLevel="0" Project="Listener" Source="Listener\Listener.vcproj" Description="專案升級成功。">
+</Event><Event ErrorLevel="3" Project="Listener" Source="Listener\Listener.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Overlapped" Source="Overlapped\Overlapped.vcproj" Description="Visual C++ 現在可支援 C 執行階段程式庫的安全版本。此程式庫的使用呈預設開啟狀態。建置專案時，您可能會看到幾個有關取代函式的警告。建議您更正這些警告，以提高程式碼的安全性。">
+</Event><Event ErrorLevel="0" Project="Overlapped" Source="Overlapped\Overlapped.vcproj" Description="C/C++ 編譯器預設值已修改，以更加相容於 ISO Standard C++。這些變更包括針對迴圈範圍強制使用 Standard C++，以及支援 wchar_t 做為原生型別。這些變更可能會造成現有的程式碼在編譯時，一定要變更程式碼或其用以建置的編譯器選項。">
+</Event><Event ErrorLevel="0" Project="Overlapped" Source="Overlapped\Overlapped.vcproj" Description="已從 C++ 編譯器移除單一執行緒執行階段程式庫參數 (/MLd、/ML)。專案已自動轉換為使用對應的多執行緒執行階段程式庫參數 (/MTd、/MT)。">
+</Event><Event ErrorLevel="1" Project="Overlapped" Source="Overlapped\Overlapped.vcproj" Description="C/C++ 編譯器參數 /Og 已經被取代，並已從您的專案設定移除。建議您改用 /O1 或 /O2。">
+</Event><Event ErrorLevel="1" Project="Overlapped" Source="Overlapped\Overlapped.vcproj" Description="由於 Visual C++ 專案必須產生內嵌的 (預設情況下) Windows SxS 資訊清單，因此使用資訊清單工具進行建置時，將自動排除專案中的資訊清單檔案。建議您將所有資訊清單檔案中包含的相依性資訊轉換成 (原始程式碼所 Include 的) 標頭檔中的 &quot;#pragma comment(linker,&quot;&lt;在此插入相依性&gt;&quot;)&quot;。如果您的專案已經透過資源 (.rc) 檔將資訊清單內嵌在 RT_MANIFEST 資源區段中，您必須先將該行標記為註解，然後才能正確建置專案。">
+</Event><Event ErrorLevel="1" Project="Overlapped" Source="Overlapped\Overlapped.vcproj" Description="由於 C++ 編譯器中的一致變更，可能會需要程式碼變更，專案才能建置無誤。舊版的 C++ 編譯器允許按照成員函數名稱指定成員函數指標 (例如 MemberFunctionName)。C++ 標準需要將完整限定名稱與傳址運算子搭配使用 (例如 &amp;ClassName::MemberFunctionName)。如果您的專案包含 Windows Form 設計工具中使用的表單或控制項，就必須變更 InitializeComponent 中的程式碼，因為產生程式碼的設計工具在委派建構中是使用非一致的語法 (用於事件處理常式)。">
+</Event><Event ErrorLevel="0" Project="Overlapped" Source="Overlapped\Overlapped.vcproj" Description="專案檔已成功備份為 'C:\Documents and Settings\lester_hu\桌面\Serial\Overlapped\Overlapped.vcproj.7.10.old'。">
+</Event><Event ErrorLevel="0" Project="Overlapped" Source="Overlapped\Overlapped.vcproj" Description="專案升級成功。">
+</Event><Event ErrorLevel="3" Project="Overlapped" Source="Overlapped\Overlapped.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Serial" Source="Serial\Serial.vcproj" Description="Visual C++ 現在可支援 C 執行階段程式庫的安全版本。此程式庫的使用呈預設開啟狀態。建置專案時，您可能會看到幾個有關取代函式的警告。建議您更正這些警告，以提高程式碼的安全性。">
+</Event><Event ErrorLevel="0" Project="Serial" Source="Serial\Serial.vcproj" Description="C/C++ 編譯器預設值已修改，以更加相容於 ISO Standard C++。這些變更包括針對迴圈範圍強制使用 Standard C++，以及支援 wchar_t 做為原生型別。這些變更可能會造成現有的程式碼在編譯時，一定要變更程式碼或其用以建置的編譯器選項。">
+</Event><Event ErrorLevel="1" Project="Serial" Source="Serial\Serial.vcproj" Description="C/C++ 編譯器參數 /Og 已經被取代，並已從您的專案設定移除。建議您改用 /O1 或 /O2。">
+</Event><Event ErrorLevel="0" Project="Serial" Source="Serial\Serial.vcproj" Description="已從 C++ 編譯器移除單一執行緒執行階段程式庫參數 (/MLd、/ML)。專案已自動轉換為使用對應的多執行緒執行階段程式庫參數 (/MTd、/MT)。">
+</Event><Event ErrorLevel="1" Project="Serial" Source="Serial\Serial.vcproj" Description="由於 Visual C++ 專案必須產生內嵌的 (預設情況下) Windows SxS 資訊清單，因此使用資訊清單工具進行建置時，將自動排除專案中的資訊清單檔案。建議您將所有資訊清單檔案中包含的相依性資訊轉換成 (原始程式碼所 Include 的) 標頭檔中的 &quot;#pragma comment(linker,&quot;&lt;在此插入相依性&gt;&quot;)&quot;。如果您的專案已經透過資源 (.rc) 檔將資訊清單內嵌在 RT_MANIFEST 資源區段中，您必須先將該行標記為註解，然後才能正確建置專案。">
+</Event><Event ErrorLevel="1" Project="Serial" Source="Serial\Serial.vcproj" Description="由於 C++ 編譯器中的一致變更，可能會需要程式碼變更，專案才能建置無誤。舊版的 C++ 編譯器允許按照成員函數名稱指定成員函數指標 (例如 MemberFunctionName)。C++ 標準需要將完整限定名稱與傳址運算子搭配使用 (例如 &amp;ClassName::MemberFunctionName)。如果您的專案包含 Windows Form 設計工具中使用的表單或控制項，就必須變更 InitializeComponent 中的程式碼，因為產生程式碼的設計工具在委派建構中是使用非一致的語法 (用於事件處理常式)。">
+</Event><Event ErrorLevel="0" Project="Serial" Source="Serial\Serial.vcproj" Description="專案檔已成功備份為 'C:\Documents and Settings\lester_hu\桌面\Serial\Serial\Serial.vcproj.7.10.old'。">
+</Event><Event ErrorLevel="0" Project="Serial" Source="Serial\Serial.vcproj" Description="專案升級成功。">
+</Event><Event ErrorLevel="3" Project="Serial" Source="Serial\Serial.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="SerialTestMFC" Source="SerialTestMFC\SerialTestMFC.vcproj" Description="Visual C++ 現在可支援 C 執行階段程式庫的安全版本。此程式庫的使用呈預設開啟狀態。建置專案時，您可能會看到幾個有關取代函式的警告。建議您更正這些警告，以提高程式碼的安全性。">
+</Event><Event ErrorLevel="0" Project="SerialTestMFC" Source="SerialTestMFC\SerialTestMFC.vcproj" Description="C/C++ 編譯器預設值已修改，以更加相容於 ISO Standard C++。這些變更包括針對迴圈範圍強制使用 Standard C++，以及支援 wchar_t 做為原生型別。這些變更可能會造成現有的程式碼在編譯時，一定要變更程式碼或其用以建置的編譯器選項。">
+</Event><Event ErrorLevel="1" Project="SerialTestMFC" Source="SerialTestMFC\SerialTestMFC.vcproj" Description="C/C++ 編譯器參數 /Og 已經被取代，並已從您的專案設定移除。建議您改用 /O1 或 /O2。">
+</Event><Event ErrorLevel="1" Project="SerialTestMFC" Source="SerialTestMFC\SerialTestMFC.vcproj" Description="由於 Visual C++ 專案必須產生內嵌的 (預設情況下) Windows SxS 資訊清單，因此使用資訊清單工具進行建置時，將自動排除專案中的資訊清單檔案。建議您將所有資訊清單檔案中包含的相依性資訊轉換成 (原始程式碼所 Include 的) 標頭檔中的 &quot;#pragma comment(linker,&quot;&lt;在此插入相依性&gt;&quot;)&quot;。如果您的專案已經透過資源 (.rc) 檔將資訊清單內嵌在 RT_MANIFEST 資源區段中，您必須先將該行標記為註解，然後才能正確建置專案。">
+</Event><Event ErrorLevel="1" Project="SerialTestMFC" Source="SerialTestMFC\SerialTestMFC.vcproj" Description="由於 C++ 編譯器中的一致變更，可能會需要程式碼變更，專案才能建置無誤。舊版的 C++ 編譯器允許按照成員函數名稱指定成員函數指標 (例如 MemberFunctionName)。C++ 標準需要將完整限定名稱與傳址運算子搭配使用 (例如 &amp;ClassName::MemberFunctionName)。如果您的專案包含 Windows Form 設計工具中使用的表單或控制項，就必須變更 InitializeComponent 中的程式碼，因為產生程式碼的設計工具在委派建構中是使用非一致的語法 (用於事件處理常式)。">
+</Event><Event ErrorLevel="0" Project="SerialTestMFC" Source="SerialTestMFC\SerialTestMFC.vcproj" Description="專案檔已成功備份為 'C:\Documents and Settings\lester_hu\桌面\Serial\SerialTestMFC\SerialTestMFC.vcproj.7.10.old'。">
+</Event><Event ErrorLevel="0" Project="SerialTestMFC" Source="SerialTestMFC\SerialTestMFC.vcproj" Description="專案升級成功。">
+</Event><Event ErrorLevel="3" Project="SerialTestMFC" Source="SerialTestMFC\SerialTestMFC.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="Serial.sln" Description="方案轉換成功">
+</Event><Event ErrorLevel="3" Project="" Source="Serial.sln" Description="Converted">
+</Event></UpgradeLog>
