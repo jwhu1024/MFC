@@ -1,16 +1,12 @@
-Visual C++ ¤ä´©¤TºØ DLL [1] ¡G
+Visual C++ æ”¯æ´ä¸‰ç¨® DLL [1] ï¼š
 
-Non-MFC DLL - ª½±µ¥Î C »y¨¥¼gªº DLL ¡A¾É¥X¨ç¼Æ¬°¼Ð·Çªº C ±µ¤f¡A«D MFC ©Î MFC µ{¦¡¬Ò¥i¨Ï¥Î
-Regular DLL - ¥Î MFC ½s¼g¡A¾É¥X¨ç¼Æ¥i¥H¬O C / C++Ãþ§O / C++¦¨­û¨ç¼Æ¡A«D MFC ©Î MFC µ{¦¡¬Ò¥i¨Ï¥Î
-Extension DLL - ¥Î MFC ½s¼g¡A¾É¥X MFC Ãþ§O¡A¥u¯à³Q MFC µ{¦¡¨Ï¥Î
+Non-MFC DLL - ç›´æŽ¥ç”¨ C èªžè¨€å¯«çš„ DLL ï¼Œå°Žå‡ºå‡½æ•¸ç‚ºæ¨™æº–çš„ C æŽ¥å£ï¼Œéž MFC æˆ– MFC ç¨‹å¼çš†å¯ä½¿ç”¨
+Regular DLL - ç”¨ MFC ç·¨å¯«ï¼Œå°Žå‡ºå‡½æ•¸å¯ä»¥æ˜¯ C / C++é¡žåˆ¥ / C++æˆå“¡å‡½æ•¸ï¼Œéž MFC æˆ– MFC ç¨‹å¼çš†å¯ä½¿ç”¨
+Extension DLL - ç”¨ MFC ç·¨å¯«ï¼Œå°Žå‡º MFC é¡žåˆ¥ï¼Œåªèƒ½è¢« MFC ç¨‹å¼ä½¿ç”¨
 
 MFC Regular DLL
 
 
-1. ¨ú±o¥Dµ{¦¡Handle
-2. §Q¥Î¥Dµ{¦¡Handle¨Óµù¥UCallback
-3. ±µµÛCreate Window¨ú±oµøµ¡Handle
-
-lester_hu
-chu75226@yahoo.com.tw
-wei751024
+1. å–å¾—ä¸»ç¨‹å¼Handle
+2. åˆ©ç”¨ä¸»ç¨‹å¼Handleä¾†è¨»å†ŠCallback
+3. æŽ¥è‘—Create Windowå–å¾—è¦–çª—Handle
